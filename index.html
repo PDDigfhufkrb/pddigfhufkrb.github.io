@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Шпаргалки | Сдай экзамен легко!</title>
+    
+    <!-- Яндекс.Метрика -->
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(106112525, 'init', {
+            ssr:true,
+            webvisor:true,
+            clickmap:true,
+            ecommerce:"dataLayer",
+            accurateTrackBounce:true,
+            trackLinks:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106112525" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="favicon-16x16.png" type="image/png" sizes="16x16">
+    
+    <!-- Основные стили -->
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --primary-dark: #1e3a8a;
+            --accent-red: #dc2626;
+            --light-bg: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Анимация карточек */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            animation-delay: calc(var(--card-index) * 0.1s);
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.15);
+            border-left-color: var(--accent-red);
+        }
+        
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 2px solid var(--primary-blue);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        .hero h1 {
+            font-weight: 800;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 2s steps(40, end);
+        }
+        
+        .hero p.lead {
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .card-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .card-text {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            min-height: 40px;
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.2);
+        }
+        
+        .price {
+            font-weight: 800;
+            color: var(--accent-red);
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-light">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">📚 ПДД Шпаргалки</span>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero text-center">
+        <div class="container">
+            <h1 class="mb-3">Сдайте ПДД с первого раза</h1>
+            <p class="lead">Краткие шпаргалки по правилам дорожного движения</p>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-3">
+                <!-- Карточки -->
+                               <!-- Карточка 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 1;">
+                        <div class="card-body">
+                            <h5 class="card-title">Основные понятия</h5>
+                            <p class="card-text small">Вся терминология ПДД простым языком</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product1.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 2;">
+                        <div class="card-body">
+                            <h5 class="card-title">Обгон и опережение</h5>
+                            <p class="card-text small">Где можно и где запрещено обгонять</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product2.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 3;">
+                        <div class="card-body">
+                            <h5 class="card-title">Остановка и стоянка</h5>
+                            <p class="card-text small">Места где запрещена остановка</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product3.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 4;">
+                        <div class="card-body">
+                            <h5 class="card-title">Проезд перекрестков</h5>
+                            <p class="card-text small">Кому уступать на перекрестке</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product4.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 5;">
+                        <div class="card-body">
+                            <h5 class="card-title">Скоростной режим</h5>
+                            <p class="card-text small">Сколько можно ехать в разных зонах</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product5.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 6;">
+                        <div class="card-body">
+                            <h5 class="card-title">Действия при ДТП</h5>
+                            <p class="card-text small">Памятка на случай аварии</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product6.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 7;">
+                        <div class="card-body">
+                            <h5 class="card-title">Световые сигналы</h5>
+                            <p class="card-text small">Когда и какие фары включать</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product7.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 8;">
+                        <div class="card-body">
+                            <h5 class="card-title">Пешеходные переходы</h5>
+                            <p class="card-text small">Правила проезда пешеходных переходов</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product8.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 9 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 9;">
+                        <div class="card-body">
+                            <h5 class="card-title">Начало движения</h5>
+                            <p class="card-text small">Повороты, перестроение, маневры</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product9.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 10 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 10;">
+                        <div class="card-body">
+                            <h5 class="card-title">Железнодорожные переезды</h5>
+                            <p class="card-text small">Правила проезда ж/д путей</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product10.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 11 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100" style="--card-index: 11;">
+                        <div class="card-body">
+                            <h5 class="card-title">Обязанности водителя</h5>
+                            <p class="card-text small">Что нужно знать перед выездом</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold price">99 ₽</span>
+                                <a href="product11.html" class="btn btn-outline-primary btn-sm">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-2">📧 example@pdd.ru</p>
+            <p class="mb-0">
+                <a href="policy.html" class="footer-link">Политика конфиденциальности</a>
+            </p>
+            <p class="small mt-3" style="opacity: 0.7;">© 2025 ПДД Шпаргалки</p>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Анимация при прокрутке -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Наблюдатель для плавного появления
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            
+            document.querySelectorAll('.card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Анимация цены при наведении
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const price = this.querySelector('.price');
+                    if (price) {
+                        price.style.transform = 'scale(1.1)';
+                        price.style.transition = 'transform 0.3s ease';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const price = this.querySelector('.price');
+                    if (price) {
+                        price.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
