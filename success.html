@@ -15,19 +15,20 @@
             border: none;
             padding: 15px 30px;
             font-size: 1.2rem;
+            transition: transform 0.2s;
         }
-        .auto-download {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        .loading {
+            display: none;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="https://pdd-shpargalka.ru/index.html">
                 ← Назад к шпаргалкам
             </a>
             <span class="navbar-text">
@@ -41,43 +42,41 @@
             <h1>✅ Оплата прошла успешно!</h1>
         </div>
         
-        <p class="lead">Спасибо за покупку! Ваша шпаргалка готова к скачиванию.</p>
-        
-        <!-- Информация о товаре -->
-        <div id="productInfo" class="mb-4">
-            <!-- Сюда подставится название товара -->
-        </div>
-
-        <!-- Кнопка скачивания -->
-        <div class="my-4">
-            <button onclick="downloadPDF()" class="btn download-btn btn-lg">
-                📥 Скачать PDF
-            </button>
-        </div>
-
-        <!-- Автоскачивание -->
-        <div class="auto-download">
-            <p class="mb-2"><strong>Автоматическое скачивание</strong></p>
-            <div class="progress mb-2">
-                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" 
-                     style="width: 0%"></div>
+        <div id="loading" class="loading mb-3">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка...</span>
             </div>
-            <p id="countdown" class="small text-muted">Скачивание начнется через 3 секунды...</p>
+            <p>Подготовка вашей шпаргалки...</p>
         </div>
+        
+        <div id="content">
+            <p class="lead">Спасибо за покупку! Ваша шпаргалка готова к скачиванию.</p>
+            
+            <!-- Кнопка скачивания -->
+            <div class="my-4">
+                <button onclick="downloadPDF()" class="btn download-btn btn-lg">
+                    📥 Скачать PDF
+                </button>
+            </div>
 
-        <p class="text-muted small">
-            Если возникли проблемы со скачиванием, свяжитесь с нами: <strong>example@pdd.ru</strong>
-        </p>
+            <div id="productInfo" class="mb-3">
+                <!-- Сюда подставится название товара -->
+            </div>
 
-        <div class="mt-4">
-            <a href="index.html" class="btn btn-outline-primary">Вернуться на главную</a>
+            <p class="text-muted small">
+                Если возникли проблемы со скачиванием, свяжитесь с нами: <strong>support@pdd-shpargalka.ru</strong>
+            </p>
+
+            <div class="mt-4">
+                <a href="https://pdd-shpargalka.ru/index.html" class="btn btn-outline-primary">Вернуться на главную</a>
+            </div>
         </div>
     </div>
 
     <footer class="bg-light py-4 mt-5">
         <div class="container text-center text-muted small">
-            <p>📧 example@pdd.ru</p>
-            <p class="mb-0"><a href="policy.html" class="text-muted">Политика конфиденциальности</a></p>
+            <p>📧 support@pdd-shpargalka.ru</p>
+            <p class="mb-0"><a href="https://pdd-shpargalka.ru/policy.html" class="text-muted">Политика конфиденциальности</a></p>
         </div>
     </footer>
 
@@ -97,80 +96,74 @@
             '11': 'Общие обязанности водителя'
         };
 
-        // ПРЯМЫЕ ссылки для скачивания с Google Drive
+        // Ссылки на PDF файлы (Google Drive)
         const pdfFiles = {
-            '1': 'https://drive.google.com/uc?export=download&id=1kYFSr6S_DGIE74yMo0v8EJMbH__r3O6D',
-            '2': 'https://drive.google.com/uc?export=download&id=1GoBl8agPglK6Y0MbYubxueeYqLCOU2Ze',
-            '3': 'https://drive.google.com/uc?export=download&id=1rhj9CIUO0TMuL0546bpgQSJQFeWRFs4s',
-            '4': 'https://drive.google.com/uc?export=download&id=1Hh4sdwf9Mc1BL6cErskcQ2_Xi46w02Ri',
-            '5': 'https://drive.google.com/uc?export=download&id=1W2VYr-yRUfeBCCLoLSvRIdxFcGG0GN9B',
-            '6': 'https://drive.google.com/uc?export=download&id=1gDCXI0B0wE9UI7MOb0MSE1dRPzZ4QQrc',
-            '7': 'https://drive.google.com/uc?export=download&id=12hShwoi5-5VVij3PPpu6WZdC_F2g3eqe',
-            '8': 'https://drive.google.com/uc?export=download&id=18nWk92JVQTWx9UMWGysQQVhAYT38fnZk',
-            '9': 'https://drive.google.com/uc?export=download&id=1-NXen5DEx00KKXCS2w8d3z0j-GAeCVRI',
-            '10': 'https://drive.google.com/uc?export=download&id=1PyAOC7ZanERh22lcO49wuT1saouBCxXe',
-            '11': 'https://drive.google.com/uc?export=download&id=1mNqgnOAnJFx69KMut87MMfxbjNPfZcDN'
+            '1': 'https://drive.google.com/file/d/1kYFSr6S_DGIE74yMo0v8EJMbH__r3O6D/view?usp=sharing',
+            '2': 'https://drive.google.com/file/d/1GoBl8agPglK6Y0MbYubxueeYqLCOU2Ze/view?usp=sharing',
+            '3': 'https://drive.google.com/file/d/1rhj9CIUO0TMuL0546bpgQSJQFeWRFs4s/view?usp=sharing',
+            '4': 'https://drive.google.com/file/d/1Hh4sdwf9Mc1BL6cErskcQ2_Xi46w02Ri/view?usp=sharing',
+            '5': 'https://drive.google.com/file/d/1W2VYr-yRUfeBCCLoLSvRIdxFcGG0GN9B/view?usp=sharing',
+            '6': 'https://drive.google.com/file/d/1gDCXI0B0wE9UI7MOb0MSE1dRPzZ4QQrc/view?usp=sharing',
+            '7': 'https://drive.google.com/file/d/12hShwoi5-5VVij3PPpu6WZdC_F2g3eqe/view?usp=sharing',
+            '8': 'https://drive.google.com/file/d/18nWk92JVQTWx9UMWGysQQVhAYT38fnZk/view?usp=sharing',
+            '9': 'https://drive.google.com/file/d/1-NXen5DEx00KKXCS2w8d3z0j-GAeCVRI/view?usp=sharing',
+            '10': 'https://drive.google.com/file/d/1PyAOC7ZanERh22lcO49wuT1saouBCxXe/view?usp=sharing',
+            '11': 'https://drive.google.com/file/d/1mNqgnOAnJFx69KMut87MMfxbjNPfZcDN/view?usp=sharing'
         };
 
-        // Глобальная переменная для productId
-        let currentProductId = null;
-
         function getProductId() {
-            if (currentProductId) return currentProductId;
-            
-            console.log('Определяем product_id...');
-            
-            // 1. Пробуем из URL параметров
+            // 1. Пробуем из URL (основной способ - через customerNumber)
             const urlParams = new URLSearchParams(window.location.search);
-            console.log('URL params:', Object.fromEntries(urlParams.entries()));
+            console.log('URL параметры:', Object.fromEntries(urlParams.entries()));
             
-            let productId = urlParams.get('product_id') || 
-                           urlParams.get('product') || 
-                           urlParams.get('label');
+            // Проверяем customerNumber (передается из payment.html)
+            let customerNumber = urlParams.get('customerNumber');
+            console.log('customerNumber из URL:', customerNumber);
             
-            console.log('From URL:', productId);
-            
-            // Если product_id в формате pdd_X, извлекаем число
-            if (productId && productId.startsWith('pdd_')) {
-                productId = productId.replace('pdd_', '');
-                console.log('After removing pdd_:', productId);
-            }
-            
-            // Проверяем что productId валидный
-            if (productId && productId >= 1 && productId <= 11) {
-                console.log('Valid product ID from URL:', productId);
-                currentProductId = productId;
+            if (customerNumber && customerNumber.startsWith('pdd_')) {
+                const productId = customerNumber.replace('pdd_', '');
+                console.log('Найден product_id из customerNumber:', productId);
                 return productId;
             }
             
-            // 2. Пробуем из localStorage
-            productId = localStorage.getItem('last_paid_product');
-            console.log('From localStorage:', productId);
+            // 2. Пробуем из localStorage (резервный способ)
+            let productId = localStorage.getItem('last_paid_product');
+            console.log('product_id из localStorage:', productId);
             
-            if (productId && productId >= 1 && productId <= 11) {
-                console.log('Valid product ID from localStorage:', productId);
+            if (productId) {
                 localStorage.removeItem('last_paid_product');
-                currentProductId = productId;
                 return productId;
             }
             
-            // 3. Fallback - используем 9 (Начало движения и маневрирование)
-            console.log('Using fallback: 9');
-            currentProductId = '9';
-            return '9';
+            // 3. Пробуем другие параметры URL
+            productId = urlParams.get('product_id') || urlParams.get('product') || urlParams.get('label');
+            
+            if (productId) {
+                console.log('Найден product_id из других параметров:', productId);
+                return productId;
+            }
+            
+            // 4. Fallback - первый товар
+            console.log('Не найден product_id, используем fallback: 1');
+            return '1';
         }
 
         function showProductInfo() {
             const productId = getProductId();
-            console.log('Showing info for product:', productId, 'Name:', productNames[productId]);
-            
             const productInfo = document.getElementById('productInfo');
+            
+            console.log('Показываем информацию для продукта:', productId);
             
             if (productNames[productId]) {
                 productInfo.innerHTML = `
                     <div class="alert alert-info">
                         <strong>Ваша шпаргалка:</strong> ${productNames[productId]}
-                        <br><small>ID: ${productId}</small>
+                    </div>
+                `;
+            } else {
+                productInfo.innerHTML = `
+                    <div class="alert alert-warning">
+                        <strong>Шпаргалка ПДД</strong> (ID: ${productId})
                     </div>
                 `;
             }
@@ -178,62 +171,51 @@
 
         function downloadPDF() {
             const productId = getProductId();
-            console.log('Downloading PDF for product:', productId, 'URL:', pdfFiles[productId]);
-            
             const pdfUrl = pdfFiles[productId];
             
+            console.log('Скачиваем PDF для продукта:', productId);
+            console.log('URL PDF:', pdfUrl);
+            
             if (pdfUrl) {
-                // Прямое скачивание
-                const link = document.createElement('a');
-                link.href = pdfUrl;
-                link.download = `PDD_Shpargalka_${productId}_${productNames[productId]}.pdf`;
-                link.target = '_blank';
+                // Показываем индикатор загрузки
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('content').style.opacity = '0.5';
                 
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
+                // Открываем PDF в новой вкладке
+                const newWindow = window.open(pdfUrl, '_blank');
                 
-                // Показываем сообщение
-                const productInfo = document.getElementById('productInfo');
-                productInfo.innerHTML += `
-                    <div class="alert alert-success mt-2">
-                        <strong>✅ Скачивание началось!</strong><br>
-                        Файл: ${productNames[productId]}.pdf
-                    </div>
-                `;
+                // Скрываем индикатор через 2 секунды
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('content').style.opacity = '1';
+                }, 2000);
+                
+                // Фокус на новой вкладке
+                if (newWindow) {
+                    newWindow.focus();
+                }
             } else {
-                alert('Файл не найден. Свяжитесь с поддержкой: example@pdd.ru');
+                alert('Файл не найден. Свяжитесь с поддержкой: support@pdd-shpargalka.ru');
             }
         }
 
-        // Автоматическое скачивание с прогресс-баром
-        function startAutoDownload() {
-            let seconds = 3;
-            const progressBar = document.getElementById('progressBar');
-            const countdown = document.getElementById('countdown');
-            
-            const timer = setInterval(() => {
-                seconds--;
-                const progress = ((3 - seconds) / 3) * 100;
-                progressBar.style.width = progress + '%';
-                countdown.textContent = `Скачивание начнется через ${seconds} секунды...`;
-                
-                if (seconds <= 0) {
-                    clearInterval(timer);
-                    downloadPDF();
-                    countdown.textContent = 'Скачивание началось!';
-                    progressBar.style.width = '100%';
-                }
-            }, 1000);
-        }
-
-        // Отладка
+        // Автоматические действия при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Success page loaded');
-            console.log('All PDF files:', pdfFiles);
-            
+            console.log('Страница success.html загружена');
             showProductInfo();
-            startAutoDownload();
+            
+            // Автоматически скачиваем через 1.5 секунды
+            setTimeout(() => {
+                console.log('Автоматическое скачивание...');
+                downloadPDF();
+            }, 1500);
+        });
+
+        // Логирование для отладки
+        console.log('=== Отладка success.html ===');
+        console.log('Текущий URL:', window.location.href);
+        console.log('localStorage:', { 
+            last_paid_product: localStorage.getItem('last_paid_product') 
         });
     </script>
 </body>
