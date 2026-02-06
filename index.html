@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Шпаргалки | Профессиональные материалы для сдачи экзамена</title>
+    <meta name="description" content="Профессиональные шпаргалки по ПДД. Сдайте экзамен с первого раза. PDF файлы сразу после оплаты. Проверенные материалы.">
+    
+    <!-- Open Graph для соцсетей -->
+    <meta property="og:title" content="ПДД Шпаргалки | Сдайте экзамен с первого раза">
+    <meta property="og:description" content="Профессиональные материалы для успешной сдачи экзамена ПДД">
+    <meta property="og:image" content="https://pdd-shpargalka.ru/images/og-image.jpg">
+    <meta property="og:url" content="https://pdd-shpargalka.ru">
+    <meta property="og:type" content="website">
+    
+    <!-- Admitad Verification Meta Tag -->
+    <meta name="verify-admitad" content="ab621e135c">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- Основные CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://pdd-shpargalka.ru/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://pdd-shpargalka.ru/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://pdd-shpargalka.ru/favicon/favicon-16x16.png">
+    <link rel="manifest" href="https://pdd-shpargalka.ru/favicon/site.webmanifest">
+    
+    <!-- Основные стили -->
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --secondary: #7c3aed;
+            --accent: #f59e0b;
+            --danger: #dc2626;
+            --success: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-lg: 0 20px 60px rgba(37, 99, 235, 0.15);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* 3D Параллакс фон */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(245, 158, 11, 0.05) 50%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .parallax-layer:nth-child(2) {
+            background-image: 
+                repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(37, 99, 235, 0.03) 50px, rgba(37, 99, 235, 0.03) 100px);
+            animation-delay: -5s;
+            transform: translateY(0) scale(1.1);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.02); }
+        }
+        
+        /* Навигация */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+            padding: 0.8rem 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transform: rotate(-5deg);
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover .logo-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        /* Герой секция */
+        .hero {
+            padding: 140px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%),
+                url('https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=2070&auto=format&fit=crop') center/cover;
+            background-blend-mode: multiply;
+            opacity: 0.9;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .hero-title span {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            min-width: 140px;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Карточки товаров */
+        .products-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid #e2e8f0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            animation-delay: calc(var(--card-index) * 0.1s);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+        
+        .card-header {
+            padding: 2rem 2rem 0;
+            position: relative;
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-light), #e0e7ff);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        .card-badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 0 2rem 2rem;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            line-height: 1.3;
+        }
+        
+        .card-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            min-height: 60px;
+        }
+        
+        .card-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-features li {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .card-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .card-footer {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+        }
+        
+        .price {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        
+        .price-old {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+        
+        .btn-details {
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-details:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            color: white;
+        }
+        
+        .btn-details.outline {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-details.outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Секция доверия */
+        .trust-section {
+            padding: 5rem 0;
+            background: white;
+            position: relative;
+        }
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .trust-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .trust-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+        
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), #e0e7ff);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 0 auto 1.5rem;
+        }
+        
+        .trust-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .trust-text {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        /* Отзывы */
+        .testimonials {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            height: 100%;
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 4rem;
+            color: var(--primary-light);
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            color: var(--dark);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-light);
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+        
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        /* CTA секция */
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+        
+        .btn-cta {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            color: var(--primary-dark);
+        }
+        
+        /* Футер */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-links h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .hero-stats {
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-item {
+                min-width: 100px;
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        
+        /* Утилиты */
+        .container {
+            max-width: 1200px;
+            padding: 0 1.5rem;
+        }
+        
+        .mt-6 { margin-top: 4rem; }
+        .mb-6 { margin-bottom: 4rem; }
+    </style>
+</head>
+<body>
+    <!-- 3D Параллакс фон -->
+    <div class="parallax-bg">
+        <div class="parallax-layer"></div>
+        <div class="parallax-layer"></div>
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <a href="https://pdd-shpargalka.ru" class="navbar-brand">
+                    <div class="logo-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    ПДД Шпаргалки
+                </a>
+                
+                <div class="d-flex gap-3">
+                    <a href="#products" class="nav-link d-none d-md-inline">Шпаргалки</a>
+                    <a href="#trust" class="nav-link d-none d-md-inline">О нас</a>
+                    <a href="#testimonials" class="nav-link d-none d-md-inline">Отзывы</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Сдайте экзамен ПДД<br>
+                    с <span>первого раза</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Профессиональные шпаргалки по всем разделам правил дорожного движения. 
+                    Только самая важная информация, без воды. PDF файлы сразу после оплаты.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">Шпаргалок</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Доступ</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">PDF</div>
+                        <div class="stat-label">Формат</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">✓</div>
+                        <div class="stat-label">Гарантия</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция товаров -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Профессиональные шпаргалки</h2>
+            <p class="section-subtitle">
+                Каждая шпаргалка — это концентрат знаний по одной теме. 
+                Изучите за 5 минут то, что обычно учат неделями.
+            </p>
+            
+            <div class="row g-4">
+                <!-- Карточка 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 1">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="card-badge">Бестселлер</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Основные понятия ПДД</h3>
+                            <p class="card-description">
+                                Вся терминология простым языком. Ключевые определения, которые нужно знать каждому водителю.
+                            </p>
+                            <ul class="card-features">
+                                <li>56 ключевых терминов</li>
+                                <li>Простые объяснения</li>
+                                <li>Примеры из практики</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product1.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 2">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-car-side"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Обгон и опережение</h3>
+                            <p class="card-description">
+                                Где можно и где запрещено обгонять. Алгоритмы безопасного обгона на разных типах дорог.
+                            </p>
+                            <ul class="card-features">
+                                <li>7 мест где обгон запрещен</li>
+                                <li>Алгоритм безопасного обгона</li>
+                                <li>Штрафы за нарушение</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product2.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 3">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-parking"></i>
+                            </div>
+                            <div class="card-badge">Популярно</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Остановка и стоянка</h3>
+                            <p class="card-description">
+                                Где можно и где нельзя парковаться. Все запрещающие знаки и разметка в одной шпаргалке.
+                            </p>
+                            <ul class="card-features">
+                                <li>14 мест где остановка запрещена</li>
+                                <li>Отличие остановки от стоянки</li>
+                                <li>Правила парковки у тротуара</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product3.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 4">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-traffic-light"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Проезд перекрестков</h3>
+                            <p class="card-description">
+                                Кому уступать дорогу на любом перекрестке. Универсальный алгоритм для сложных ситуаций.
+                            </p>
+                            <ul class="card-features">
+                                <li>Регулируемые перекрестки</li>
+                                <li>Нерегулируемые перекрестки</li>
+                                <li>Круговое движение</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product4.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 5">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Скоростной режим</h3>
+                            <p class="card-description">
+                                Все ограничения скорости в одной таблице. Для города, трассы, автомагистрали и особых зон.
+                            </p>
+                            <ul class="card-features">
+                                <li>Таблица скоростей для всех ТС</li>
+                                <li>Особые зоны ограничения</li>
+                                <li>Штрафы за превышение</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product5.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 6">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <div class="card-badge">Важно</div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Действия при ДТП</h3>
+                            <p class="card-description">
+                                Пошаговая инструкция на случай аварии. Что делать сразу после ДТП, даже в стрессовой ситуации.
+                            </p>
+                            <ul class="card-features">
+                                <li>Первые действия при ДТП</li>
+                                <li>Европротокол или вызов ГИБДД</li>
+                                <li>Общение со страховой</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product6.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Остальные карточки (продолжение) -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 7">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Световые сигналы</h3>
+                            <p class="card-description">
+                                Когда и какие фары включать. Правила использования дальнего света, противотуманных фар.
+                            </p>
+                            <ul class="card-features">
+                                <li>Ближний и дальний свет</li>
+                                <li>Противотуманные фары</li>
+                                <li>Сигналы водителей</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product7.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 8">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Пешеходные переходы</h3>
+                            <p class="card-description">
+                                Правила проезда пешеходных переходов. Обязанности водителя и права пешеходов.
+                            </p>
+                            <ul class="card-features">
+                                <li>Нерегулируемые переходы</li>
+                                <li>Регулируемые переходы</li>
+                                <li>Остановка перед переходом</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product8.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 9">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Начало движения</h3>
+                            <p class="card-description">
+                                Повороты, перестроение, маневры. Правила безопасного старта и выполнения маневров.
+                            </p>
+                            <ul class="card-features">
+                                <li>Правила перестроения</li>
+                                <li>Повороты и развороты</li>
+                                <li>Выезд с прилегающей территории</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product9.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 10">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-train"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Железнодорожные переезды</h3>
+                            <p class="card-description">
+                                Правила проезда ж/д путей. Запреты и ограничения на железнодорожных переездах.
+                            </p>
+                            <ul class="card-features">
+                                <li>Регулируемые переезды</li>
+                                <li>Нерегулируемые переезды</li>
+                                <li>Действия при вынужденной остановке</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product10.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card" style="--card-index: 11">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">Обязанности водителя</h3>
+                            <p class="card-description">
+                                Что нужно знать перед выездом. Документы, медицинские требования, общие обязанности.
+                            </p>
+                            <ul class="card-features">
+                                <li>Обязательные документы</li>
+                                <li>Техническое состояние ТС</li>
+                                <li>Запреты для водителя</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="https://pdd-shpargalka.ru/product11.html" class="btn-details">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Кнопка полного комплекта -->
+            <div class="text-center mt-6">
+                <a href="https://pdd-shpargalka.ru/full-pack.html" class="btn-details outline" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
+                    <i class="fas fa-box me-2"></i>Полный комплект всех шпаргалок со скидкой 30%
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция доверия -->
+    <section class="trust-section" id="trust">
+        <div class="container">
+            <h2 class="section-title">Почему нам доверяют</h2>
+            <p class="section-subtitle">
+                Более 1000 учеников успешно сдали экзамен с помощью наших материалов
+            </p>
+            
+            <div class="trust-grid">
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="trust-title">Актуальная информация</h3>
+                    <p class="trust-text">
+                        Все материалы соответствуют последним изменениям в ПДД. Регулярно обновляем контент.
+                    </p>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="trust-title">Мгновенный доступ</h3>
+                    <p class="trust-text">
+                        PDF файл сразу после оплаты. Скачивайте и изучайте в любое время, даже с мобильного.
+                    </p>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="trust-title">Гарантия качества</h3>
+                    <p class="trust-text">
+                        Если шпаргалка не поможет — вернем деньги. Наша цель — ваш успех на экзамене.
+                    </p>
+                </div>
+                
+                <div class="trust-card">
+                    <div class="trust-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="trust-title">Поддержка 24/7</h3>
+                    <p class="trust-text">
+                        Отвечаем на вопросы в любое время. Помогаем разобраться в сложных моментах.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы наших учеников</h2>
+            <p class="section-subtitle">
+                Реальные истории успеха от тех, кто уже сдал экзамен
+            </p>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Шпаргалка по перекресткам спасла меня на экзамене. Все сложные ситуации разложены по полочкам. Сдал с первого раза!"
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Алексей" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Алексей Петров</h4>
+                                <p>Сдал экзамен 2 недели назад</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Купила все шпаргалки. Очень удобно, что можно изучать по одной теме. Особенно помогла шпаргалка по остановке и стоянке."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Мария" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Мария Смирнова</h4>
+                                <p>Водитель с 2024 года</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Пересдавал 3 раза. После ваших шпаргалок сдал с первого раза. Особенно понравилась структура — никакой воды, только суть."
+                        </p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Дмитрий" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Дмитрий Иванов</h4>
+                                <p>Студент автошколы</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA секция -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Начните подготовку сегодня</h2>
+            <p class="cta-text">
+                Выберите нужную шпаргалку или получите полный комплект со скидкой 30%. 
+                PDF файлы доступны сразу после оплаты. Гарантия возврата денег.
+            </p>
+            <a href="#products" class="btn-cta">
+                <i class="fas fa-shopping-cart me-2"></i>Выбрать шпаргалку
+            </a>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <i class="fas fa-car"></i> ПДД Шпаргалки
+                    </div>
+                    <p style="color: #94a3b8; margin-bottom: 1.5rem;">
+                        Профессиональные материалы для успешной сдачи экзамена ПДД с первого раза.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="footer-links">
+                        <h4>Контакты</h4>
+                        <ul>
+                            <li><i class="fas fa-envelope me-2"></i> neurosprint.team@gmail.com</li>
+                            <li><i class="fas fa-clock me-2"></i> Поддержка: 24/7</li>
+                            <li><i class="fas fa-globe me-2"></i> pdd-shpargalka.ru</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="footer-links">
+                        <h4>Документы</h4>
+                        <ul>
+                            <li><a href="https://pdd-shpargalka.ru/policy.html"><i class="fas fa-file-contract me-2"></i> Политика конфиденциальности</a></li>
+                            <li><a href="https://pdd-shpargalka.ru/offer.html"><i class="fas fa-file-alt me-2"></i> Договор оферты</a></li>
+                            <li><a href="https://pdd-shpargalka.ru/faq.html"><i class="fas fa-question-circle me-2"></i> Частые вопросы</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 ПДД Шпаргалки. Все права защищены.</p>
+                <p class="mt-2 small">ИП Несуществующий ИП | ОГРНИП: 123456789012345 | ИНН: 123456789012</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Основной JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Параллакс эффект
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallaxLayers = document.querySelectorAll('.parallax-layer');
+                
+                parallaxLayers.forEach((layer, index) => {
+                    const speed = 0.05 * (index + 1);
+                    layer.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+            
+            // Анимация навигации при скролле
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Анимация появления карточек при скролле
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за карточками
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.animationPlayState = 'paused';
+                observer.observe(card);
+            });
+            
+            // Плавный скролл для якорных ссылок
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Анимация цен при наведении
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const price = this.querySelector('.price');
+                    if (price) {
+                        price.style.transition = 'transform 0.3s ease, color 0.3s ease';
+                        price.style.transform = 'scale(1.1)';
+                        price.style.color = '#7c3aed';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const price = this.querySelector('.price');
+                    if (price) {
+                        price.style.transform = 'scale(1)';
+                        price.style.color = '';
+                    }
+                });
+            });
+            
+            // Инициализация навигации при загрузке
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('scrolled');
+            }
+        });
+        
+        // Яндекс.Метрика
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106112525', 'ym');
+
+        ym(106112525, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106112525" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Яндекс.Метрика -->
+
+</body>
+</html>
