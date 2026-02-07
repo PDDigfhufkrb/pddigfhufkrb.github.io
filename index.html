@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Шпаргалки | Профессиональные материалы для сдачи экзамена</title>
+    <meta name="description" content="Профессиональные шпаргалки по ПДД. Сдайте экзамен с первого раза. PDF файлы сразу после оплаты. Проверенные материалы.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Навигация */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Герой секция с фоном дороги */
+        .hero {
+            padding: 100px 0 60px;
+            position: relative;
+            background: 
+                linear-gradient(rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0.9)),
+                url('https://s4.iimage.su/s/07/g4ZOUVYxekhiX82S8Ns5gqA4kK8iI7ZbDyuB4GPP.jpg') center/cover no-repeat;
+            color: white;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* Карточки товаров */
+        .products-section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+        
+        .card-text {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+        
+        .card-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+        }
+        
+        .price {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .btn-details {
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-details:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* Футер */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            text-align: center;
+        }
+        
+        .footer-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 80px 0 40px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        
+        .container {
+            max-width: 1200px;
+            padding: 0 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <a href="/" class="navbar-brand">
+                    <i class="fas fa-car"></i> ПДД Шпаргалки
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Сдайте экзамен ПДД<br>
+                    с первого раза
+                </h1>
+                <p class="hero-subtitle">
+                    Профессиональные шпаргалки по всем разделам правил дорожного движения. 
+                    Только самая важная информация, без воды. PDF файлы сразу после оплаты.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция товаров -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Профессиональные шпаргалки</h2>
+            <p class="section-subtitle">
+                Каждая шпаргалка — это концентрат знаний по одной теме. 
+                Изучите за 5 минут то, что обычно учат неделями.
+            </p>
+            
+            <div class="row g-4">
+                <!-- Карточка 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Основные понятия ПДД</h3>
+                            <p class="card-text">
+                                Вся терминология простым языком. Ключевые определения, которые нужно знать каждому водителю.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product1.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Обгон и опережение</h3>
+                            <p class="card-text">
+                                Где можно и где запрещено обгонять. Алгоритмы безопасного обгона на разных типах дорог.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product2.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Остановка и стоянка</h3>
+                            <p class="card-text">
+                                Где можно и где нельзя парковаться. Все запрещающие знаки и разметка в одной шпаргалке.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product3.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Проезд перекрестков</h3>
+                            <p class="card-text">
+                                Кому уступать дорогу на любом перекрестке. Универсальный алгоритм для сложных ситуаций.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product4.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Скоростной режим</h3>
+                            <p class="card-text">
+                                Все ограничения скорости в одной таблице. Для города, трассы, автомагистрали и особых зон.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product5.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Действия при ДТП</h3>
+                            <p class="card-text">
+                                Пошаговая инструкция на случай аварии. Что делать сразу после ДТП, даже в стрессовой ситуации.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product6.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Световые сигналы</h3>
+                            <p class="card-text">
+                                Когда и какие фары включать. Правила использования дальнего света, противотуманных фар.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product7.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Пешеходные переходы</h3>
+                            <p class="card-text">
+                                Правила проезда пешеходных переходов. Обязанности водителя и права пешеходов.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product8.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 9 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Начало движения</h3>
+                            <p class="card-text">
+                                Повороты, перестроение, маневры. Правила безопасного старта и выполнения маневров.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product9.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 10 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Железнодорожные переезды</h3>
+                            <p class="card-text">
+                                Правила проезда ж/д путей. Запреты и ограничения на железнодорожных переездах.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product10.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 11 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-body">
+                            <h3 class="card-title">Обязанности водителя</h3>
+                            <p class="card-text">
+                                Что нужно знать перед выездом. Документы, медицинские требования, общие обязанности.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price">99 ₽</div>
+                            <a href="/product11.html" class="btn-details">
+                                Подробнее
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <span class="footer-brand">
+                    <i class="fas fa-car"></i> ПДД Шпаргалки
+                </span>
+                
+                <div class="social-links">
+                    <a href="https://vk.com/pdd_shpargalki" target="_blank" class="social-link">
+                        <i class="fab fa-vk"></i>
+                    </a>
+                </div>
+                
+                <div class="copyright">
+                    <p>© 2026 ПДД Шпаргалки. Все права защищены.</p>
+                    <p class="mt-2">Профессиональные материалы для успешной сдачи экзамена ПДД</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Простой скрипт для плавного скролла
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
