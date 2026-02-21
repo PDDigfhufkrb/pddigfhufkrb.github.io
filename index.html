@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Шпаргалки | Сдай экзамен с первого раза</title>
+    
+    <!-- Мета-теги -->
+    <meta name="verify-admitad" content="ab621e135c" />
+    <meta name="description" content="Краткие и понятные шпаргалки по ПДД. Учите правила быстро и эффективно.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/png" sizes="32x32">
+    
+    <style>
+        /* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ === */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --success: #10b981;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-light: #94a3b8;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 40px rgba(37, 99, 235, 0.1);
+            --shadow-lg: 0 20px 60px rgba(37, 99, 235, 0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+        }
+
+        /* === СБРОС И БАЗОВЫЕ СТИЛИ === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-light);
+            color: var(--text-primary);
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* === НАВИГАЦИЯ === */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* === ГЕРОЙ СЕКЦИЯ С ИЗОБРАЖЕНИЕМ === */
+        .hero {
+            min-height: 500px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%), url('https://s10.iimage.su/s/21/gLyMiAnxVXzewvM15XLL7u6eZQ9AzFmQljD6vp6cM.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            opacity: 0.85;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* === СЕКЦИЯ ПРЕИМУЩЕСТВ === */
+        .features {
+            padding: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            padding: 2rem 1.5rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(37, 99, 235, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* === СЕКЦИЯ ТОВАРОВ === */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 2.5rem;
+            color: var(--text-primary);
+        }
+
+        .product-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 1.8rem;
+            height: 100%;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-light);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            font-weight: 800;
+            color: rgba(37, 99, 235, 0.1);
+            line-height: 1;
+        }
+
+        .product-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            padding-right: 2rem;
+        }
+
+        .product-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .btn-details {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-details:hover {
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+            color: white;
+        }
+
+        /* === VK СЕКЦИЯ === */
+        .vk-section {
+            background: linear-gradient(135deg, #0077ff 0%, #0055aa 100%);
+            padding: 3rem 0;
+            margin: 4rem 0;
+            color: white;
+        }
+
+        .vk-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vk-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .vk-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .vk-text {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .btn-vk {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: white;
+            color: #0077ff;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-vk:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            color: #0077ff;
+        }
+
+        /* === COOKIE ПЛАШКА === */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            z-index: 9999;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .cookie-consent.hidden {
+            transform: translateY(200%);
+        }
+
+        .cookie-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .cookie-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cookie-text a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-cookie {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-cookie:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        /* === ФУТЕР === */
+        .footer {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-text {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* === АДАПТИВНОСТЬ === */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .btn-cookie {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <i class="fas fa-car"></i>
+                ПДД Шпаргалки
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция с изображением -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Сдай экзамен ПДД с первого раза</h1>
+            <p>12 коротких и понятных шпаргалок по правилам дорожного движения. Никакой воды — только суть.</p>
+            <a href="#products" class="btn btn-details btn-lg" style="font-size: 1.1rem; padding: 0.8rem 2.5rem;">Выбрать шпаргалку →</a>
+        </div>
+    </section>
+
+    <!-- Секция преимуществ -->
+    <section class="features">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="feature-title">Мгновенно</h3>
+                        <p class="feature-text">PDF-файл приходит на почту сразу после оплаты</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3 class="feature-title">Только суть</h3>
+                        <p class="feature-text">Кратко, понятно, без юридических сложностей</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="feature-title">Актуально</h3>
+                        <p class="feature-text">Соответствует последним изменениям в ПДД</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция товаров -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">12 шпаргалок — 12 важных тем</h2>
+            
+            <div class="row g-4">
+                <!-- Карточка 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">01</div>
+                        <h3>Основные понятия</h3>
+                        <p>Вся терминология ПДД простым языком. Термины, которые нужно знать каждому.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product1.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">02</div>
+                        <h3>Обгон и опережение</h3>
+                        <p>Где можно и где запрещено обгонять. Как правильно совершать манёвры.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product2.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">03</div>
+                        <h3>Остановка и стоянка</h3>
+                        <p>Все места, где запрещена остановка. Как парковаться без штрафов.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product3.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">04</div>
+                        <h3>Проезд перекрестков</h3>
+                        <p>Кому уступать на перекрестке. Схемы для любых ситуаций.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product4.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">05</div>
+                        <h3>Скоростной режим</h3>
+                        <p>Таблица скоростей для всех зон. Штрафы за превышение.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product5.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 6 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">06</div>
+                        <h3>Действия при ДТП</h3>
+                        <p>Пошаговый алгоритм на случай аварии. Что делать сразу.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product6.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 7 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">07</div>
+                        <h3>Световые сигналы</h3>
+                        <p>Когда и какие фары включать. Язык общения на дороге.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product7.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 8 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">08</div>
+                        <h3>Пешеходные переходы</h3>
+                        <p>Правила проезда зебр. Как не получить штраф.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product8.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 9 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">09</div>
+                        <h3>Начало движения</h3>
+                        <p>Повороты, перестроение, развороты. Безопасные манёвры.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product9.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 10 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">10</div>
+                        <h3>Ж/д переезды</h3>
+                        <p>Правила проезда. Запреты и штрафы.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product10.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 11 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">11</div>
+                        <h3>Обязанности водителя</h3>
+                        <p>Что нужно знать перед выездом. Документы и правила.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product11.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Карточка 12 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="product-card">
+                        <div class="card-number">12</div>
+                        <h3>Автомагистрали</h3>
+                        <p>Особые правила движения по трассам и скоростным дорогам.</p>
+                        <div class="card-footer">
+                            <span class="price">99 ₽</span>
+                            <a href="product12.html" class="btn-details">Купить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VK секция -->
+    <section class="vk-section">
+        <div class="container">
+            <div class="vk-content">
+                <div class="vk-icon">
+                    <i class="fab fa-vk"></i>
+                </div>
+                <h2 class="vk-title">Присоединяйся к нам ВКонтакте!</h2>
+                <p class="vk-text">Разборы сложных задач, мемы, новости ПДД и общение с единомышленниками. Уже 5000+ водителей в нашем сообществе!</p>
+                <a href="https://vk.com/club229771530" class="btn-vk" target="_blank">
+                    <i class="fab fa-vk"></i>
+                    Перейти в сообщество
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">ПДД Шпаргалки</div>
+                    <p class="footer-text">Краткие и понятные материалы для подготовки к экзамену в ГИБДД. Учитесь быстро и эффективно.</p>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h4 style="color: white; margin-bottom: 1.2rem;">Контакты</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> neurosprint.team@gmail.com</li>
+                        <li><i class="fab fa-vk me-2"></i> <a href="https://vk.com/club229771530" target="_blank">Наша группа ВК</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h4 style="color: white; margin-bottom: 1.2rem;">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="policy.html"><i class="fas fa-file-contract me-2"></i> Политика конфиденциальности</a></li>
+                        <li><a href="terms.html"><i class="fas fa-file-alt me-2"></i> Пользовательское соглашение</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 ПДД Шпаргалки. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie плашка -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-text">
+            Продолжая работу на сайте, вы соглашаетесь с <a href="policy.html">политикой конфиденциальности</a> и <a href="terms.html">пользовательским соглашением</a>.
+        </div>
+        <button class="btn-cookie" onclick="acceptCookies()">ОК</button>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Cookie плашка
+        function acceptCookies() {
+            document.getElementById('cookieConsent').classList.add('hidden');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        // Проверяем, было ли уже согласие
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieConsent').classList.add('hidden');
+            }
+        });
+
+        // Плавный скролл к товарам
+        document.querySelector('a[href="#products"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            const productsSection = document.getElementById('products');
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = productsSection.offsetTop - navbarHeight - 20;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        });
+
+        // Анимация появления карточек
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+
+    <!-- Яндекс.Метрика -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106112525', 'ym');
+
+        ym(106112525, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106112525" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Яндекс.Метрика -->
+
+</body>
+</html>
