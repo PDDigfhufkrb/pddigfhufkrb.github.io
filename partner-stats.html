@@ -2,44 +2,139 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Статистика партнеров | ПДД Шпаргалка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистика партнеров | ПДД Шпаргалки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f7fa; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        h1 { color: #0a2540; }
-        table { width: 100%; background: white; border-radius: 8px; border-collapse: collapse; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        th { background: #0a2540; color: white; padding: 12px; text-align: left; }
-        td { padding: 12px; border-bottom: 1px solid #ddd; }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px; }
-        .stat-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .stat-number { font-size: 24px; font-weight: bold; color: #ff6b4a; }
-        button { background: #0a2540; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
-        button:hover { background: #1a3b5c; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            padding: 30px 0;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        h1 {
+            color: #0a2540;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(10,37,64,0.05);
+        }
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0a2540;
+        }
+        .stat-label {
+            color: #ff6b4a;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .partner-badge {
+            background: #e9ecef;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        th {
+            background: #0a2540;
+            color: white;
+            font-weight: 600;
+            padding: 15px;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+        .btn-export {
+            background: #0a2540;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .btn-export:hover {
+            background: #1a3b5c;
+            color: white;
+        }
+        .amount {
+            font-weight: 700;
+            color: #0a2540;
+        }
+        .partner-share {
+            color: #ff6b4a;
+            font-weight: 700;
+        }
+        .footer {
+            margin-top: 40px;
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>📊 Статистика партнерских продаж</h1>
+        <h1>📊 Статистика партнерской программы</h1>
         
-        <div class="stats" id="stats"></div>
+        <div class="stats-grid" id="stats"></div>
         
-        <button onclick="exportToCSV()">⬇️ Экспорт в CSV</button>
+        <button class="btn-export" onclick="exportToCSV()">
+            ⬇️ Экспортировать в CSV
+        </button>
         
-        <table id="salesTable">
-            <thead>
-                <tr>
-                    <th>Дата</th>
-                    <th>Партнер</th>
-                    <th>Товар</th>
-                    <th>Цена</th>
-                    <th>Доля партнера (40%)</th>
-                </tr>
-            </thead>
-            <tbody id="salesBody"></tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th>Партнер</th>
+                        <th>Товар</th>
+                        <th>Сумма</th>
+                        <th>Доля партнера (40%)</th>
+                    </tr>
+                </thead>
+                <tbody id="salesTable"></tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p>Данные хранятся локально в вашем браузере. Экспортируйте для сохранения.</p>
+        </div>
     </div>
 
     <script>
+        // Загрузка статистики
         function loadStats() {
             const sales = JSON.parse(localStorage.getItem('partnerSales') || '[]');
             
@@ -48,53 +143,108 @@
             const totalRevenue = sales.reduce((sum, s) => sum + s.price, 0);
             const totalPartnerShare = totalRevenue * 0.4;
             
-            document.getElementById('stats').innerHTML = `
+            // Статистика по партнерам
+            const partners = {};
+            sales.forEach(sale => {
+                if (sale.partner !== 'direct') {
+                    if (!partners[sale.partner]) {
+                        partners[sale.partner] = {
+                            count: 0,
+                            revenue: 0
+                        };
+                    }
+                    partners[sale.partner].count++;
+                    partners[sale.partner].revenue += sale.price;
+                }
+            });
+            
+            // Отображаем общую статистику
+            let statsHtml = `
                 <div class="stat-card">
-                    <div>Всего продаж</div>
+                    <h3>Всего продаж</h3>
                     <div class="stat-number">${totalSales}</div>
+                    <div class="stat-label">шт.</div>
                 </div>
                 <div class="stat-card">
-                    <div>Общая выручка</div>
+                    <h3>Общая выручка</h3>
                     <div class="stat-number">${totalRevenue} ₽</div>
+                    <div class="stat-label">до выплат</div>
                 </div>
                 <div class="stat-card">
-                    <div>Партнерам (40%)</div>
-                    <div class="stat-number">${totalPartnerShare} ₽</div>
+                    <h3>Партнерам (40%)</h3>
+                    <div class="stat-number">${Math.round(totalPartnerShare)} ₽</div>
+                    <div class="stat-label">к выплате</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Активных партнеров</h3>
+                    <div class="stat-number">${Object.keys(partners).length}</div>
+                    <div class="stat-label">человек</div>
                 </div>
             `;
             
-            // Таблица продаж
-            let html = '';
-            sales.sort((a,b) => new Date(b.date) - new Date(a.date)).forEach(sale => {
+            // Добавляем статистику по каждому партнеру
+            for (let [ref, data] of Object.entries(partners)) {
+                statsHtml += `
+                    <div class="stat-card">
+                        <h3>${ref}</h3>
+                        <div class="stat-number">${data.count}</div>
+                        <div class="stat-label">продаж / ${Math.round(data.revenue * 0.4)} ₽</div>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('stats').innerHTML = statsHtml;
+            
+            // Отображаем таблицу продаж
+            let tableHtml = '';
+            sales.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(sale => {
+                const date = new Date(sale.date).toLocaleString('ru-RU');
                 const partnerShare = sale.price * 0.4;
-                html += `<tr>
-                    <td>${new Date(sale.date).toLocaleString('ru-RU')}</td>
-                    <td>${sale.partner}</td>
-                    <td>${sale.product}</td>
-                    <td>${sale.price} ₽</td>
-                    <td><strong>${partnerShare} ₽</strong></td>
-                </tr>`;
+                tableHtml += `
+                    <tr>
+                        <td>${date}</td>
+                        <td>
+                            <span class="partner-badge">${sale.partner === 'direct' ? 'Прямой заход' : sale.partner}</span>
+                        </td>
+                        <td>${sale.product_name || sale.product}</td>
+                        <td class="amount">${sale.price} ₽</td>
+                        <td class="partner-share">${sale.partner === 'direct' ? '—' : Math.round(partnerShare) + ' ₽'}</td>
+                    </tr>
+                `;
             });
             
-            document.getElementById('salesBody').innerHTML = html || '<tr><td colspan="5" style="text-align:center">Пока нет продаж</td></tr>';
+            if (sales.length === 0) {
+                tableHtml = '<tr><td colspan="5" class="text-center py-4">Пока нет продаж</td></tr>';
+            }
+            
+            document.getElementById('salesTable').innerHTML = tableHtml;
         }
         
+        // Экспорт в CSV
         function exportToCSV() {
             const sales = JSON.parse(localStorage.getItem('partnerSales') || '[]');
-            if (!sales.length) return alert('Нет данных');
             
-            let csv = 'Дата,Партнер,Товар,Цена,Доля партнера\n';
-            sales.forEach(s => {
-                csv += `"${new Date(s.date).toLocaleString('ru-RU')}",${s.partner},${s.product},${s.price},${s.price * 0.4}\n`;
+            if (sales.length === 0) {
+                alert('Нет данных для экспорта');
+                return;
+            }
+            
+            let csv = 'Дата,Партнер,Товар,Сумма,Доля партнера (40%)\n';
+            
+            sales.forEach(sale => {
+                const date = new Date(sale.date).toLocaleString('ru-RU');
+                const partnerShare = sale.price * 0.4;
+                csv += `"${date}",${sale.partner},${sale.product_name || sale.product},${sale.price},${sale.partner === 'direct' ? 0 : partnerShare}\n`;
             });
             
-            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv' });
+            const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = `sales_${new Date().toISOString().slice(0,10)}.csv`;
+            link.download = `partner_sales_${new Date().toISOString().slice(0,10)}.csv`;
             link.click();
         }
         
+        // Загружаем при открытии страницы
         loadStats();
     </script>
 </body>
