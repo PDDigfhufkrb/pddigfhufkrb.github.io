@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Академия | Обучающие курсы по правилам дорожного движения</title>
+    
+    <!-- Мета-теги для SEO -->
+    <meta name="verify-admitad" content="ab621e135c" />
+    <meta name="description" content="Обучающие курсы по ПДД. Полный разбор тем: обгон, опережение, остановка, стоянка, перекрестки и другие. Понятные объяснения, таблицы, алгоритмы.">
+    <meta name="keywords" content="пдд онлайн, курсы пдд, обучение пдд, правила дорожного движения, экзамен пдд, гибдд, подготовка к экзамену">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Партнерская система -->
+    <script>
+        (function() {
+            const partnerNames = {
+                'pddpravila': 'ПДД | Правила Дорожного Движения',
+                'pro-pdd': 'PRO ПДД',
+                'doroga-pdd': 'ДОРОГА - ПДД',
+                'uroki-pdd': 'Уроки ПДД',
+                'lobnya': 'Лобненский маршрут ГАИ',
+                'default': 'сообщества'
+            };
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const ref = urlParams.get('ref');
+            
+            if (ref) {
+                const partnerData = { ref: ref, date: new Date().toISOString() };
+                const cookieValue = encodeURIComponent(JSON.stringify(partnerData));
+                document.cookie = `partner=${cookieValue}; path=/; max-age=2592000; samesite=lax`;
+                
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        showPartnerNotification(ref);
+                    });
+                } else {
+                    showPartnerNotification(ref);
+                }
+            }
+            
+            function showPartnerNotification(ref) {
+                const partnerName = partnerNames[ref] || partnerNames['default'];
+                
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 20px;
+                    background: linear-gradient(135deg, #0a2540, #1a3b5c);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 50px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    z-index: 9999;
+                    font-family: 'Inter', Arial, sans-serif;
+                    font-size: 14px;
+                    border-left: 4px solid #ff6b4a;
+                    animation: slideIn 0.5s ease;
+                    max-width: 400px;
+                `;
+                notification.innerHTML = `
+                    🎁 Вы перешли по ссылке от <strong>${partnerName}</strong>!<br>
+                    При покупке они получат часть дохода.
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.5s ease';
+                    setTimeout(() => notification.remove(), 500);
+                }, 5000);
+            }
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(-100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(-100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            window.getPartnerFromCookies = function() {
+                const cookies = document.cookie.split('; ');
+                for (let cookie of cookies) {
+                    if (cookie.startsWith('partner=')) {
+                        try {
+                            return JSON.parse(decodeURIComponent(cookie.substring(8)));
+                        } catch(e) {
+                            return null;
+                        }
+                    }
+                }
+                return null;
+            };
+        })();
+    </script>
+    
+    <style>
+        /* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ === */
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1a3b5c;
+            --accent: #ff6b4a;
+            --accent-light: #ff8a6f;
+            --text-primary: #1a2b3c;
+            --text-secondary: #4a5a6a;
+            --text-light: #7a8a9a;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --bg-soft: #f8faff;
+            --shadow-sm: 0 4px 20px rgba(10, 37, 64, 0.05);
+            --shadow-md: 0 10px 40px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 37, 64, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* === НАВИГАЦИЯ === */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* === ГЕРОЙ СЕКЦИЯ === */
+        .hero {
+            min-height: 500px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        /* === СЕКЦИЯ КУРСОВ === */
+        .courses-section {
+            padding: 5rem 0;
+            background: var(--bg-soft);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(10,37,64,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .course-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .course-image i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .course-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .course-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .course-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .course-meta i {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(10,37,64,0.05);
+        }
+
+        .course-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .btn-course {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-course:hover {
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(10, 37, 64, 0.3);
+            color: white;
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, #e0e0e0, #b0b0b0);
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        /* === СЕКЦИЯ ПРЕИМУЩЕСТВ === */
+        .features-section {
+            padding: 5rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* === FAQ СЕКЦИЯ === */
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-soft);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 300px;
+        }
+
+        /* === VK СЕКЦИЯ === */
+        .vk-section {
+            background: linear-gradient(135deg, #0a2540 0%, #1a3b5c 100%);
+            padding: 4rem 0;
+            color: white;
+        }
+
+        .vk-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vk-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .vk-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .vk-text {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .btn-vk {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-vk:hover {
+            transform: scale(1.05);
+            color: var(--primary);
+        }
+
+        /* === ФУТЕР === */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* === COOKIE ПЛАШКА === */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            z-index: 9999;
+            border-left: 4px solid var(--accent);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .cookie-consent.hidden {
+            transform: translateY(200%);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .cookie-text a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .btn-cookie {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cookie:hover {
+            background: var(--primary-light);
+        }
+
+        /* === АДАПТИВНОСТЬ === */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .btn-cookie {
+                width: 100%;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        /* Скрытые SEO-ключи */
+        .seo-keywords {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Скрытые SEO-ключи -->
+    <div class="seo-keywords">
+        пдд онлайн, курсы пдд, обучение пдд, правила дорожного движения, экзамен пдд, гибдд, подготовка к экзамену, обгон, опережение, остановка, стоянка
+    </div>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i>
+                ПДД Академия
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Обучающие курсы по ПДД</h1>
+            <p>Разбор ключевых тем правил дорожного движения. Понятные объяснения, таблицы, алгоритмы и ссылки на видео.</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn-primary">Выбрать курс →</a>
+                <a href="#about" class="btn-secondary">Как это устроено</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция курсов -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <h2 class="section-title">Наши курсы</h2>
+            <p class="section-subtitle">Два подробных курса по самым важным темам ПДД. Каждый содержит полный разбор, таблицы и ссылки на видео.</p>
+            
+            <div class="courses-grid">
+                <!-- Курс 1: Обгон и опережение -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-car-side"></i>
+                        <span class="course-badge">Новый</span>
+                    </div>
+                    <div class="course-content">
+                        <h3>Обгон и опережение</h3>
+                        <div class="course-description">
+                            Полный разбор темы: определения, где можно и где нельзя обгонять, типичные ошибки, штрафы, пошаговый алгоритм безопасного обгона.
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fas fa-file-pdf"></i> 6 страниц</span>
+                            <span><i class="fas fa-video"></i> 2 видео</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">299 ₽</span>
+                            <a href="https://drive.google.com/file/d/1Mqje4DjDxaRDQcWgSEmFRGPcFQVrSpbt/view?usp=sharing" class="btn-course" target="_blank">Подробнее →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Курс 2: Остановка и стоянка -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <i class="fas fa-parking"></i>
+                        <span class="course-badge">Новый</span>
+                    </div>
+                    <div class="course-content">
+                        <h3>Остановка и стоянка</h3>
+                        <div class="course-description">
+                            Всё о том, где можно и нельзя останавливаться и стоять. Разбор знаков, табличек, штрафов, памятка для выбора места.
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fas fa-file-pdf"></i> 7 страниц</span>
+                            <span><i class="fas fa-video"></i> 2 видео</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">299 ₽</span>
+                            <a href="https://drive.google.com/file/d/11nKsMstQhSjsk-XrArDJWb2oqI8vQ45b/view?usp=sharing" class="btn-course" target="_blank">Подробнее →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Скоро появятся -->
+                <div class="course-card coming-soon">
+                    <div class="course-image">
+                        <i class="fas fa-traffic-light"></i>
+                        <span class="course-badge">Скоро</span>
+                    </div>
+                    <div class="course-content">
+                        <h3>Проезд перекрёстков</h3>
+                        <div class="course-description">
+                            Курс в разработке. Здесь будет полный разбор проезда регулируемых и нерегулируемых перекрёстков.
+                        </div>
+                        <div class="course-meta">
+                            <span><i class="fas fa-file-pdf"></i> в разработке</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">скоро</span>
+                            <span class="btn-course" style="opacity:0.5; cursor:not-allowed;">Скоро →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция преимуществ -->
+    <section class="features-section" id="about">
+        <div class="container">
+            <h2 class="section-title">Как устроены наши курсы</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Только суть</h3>
+                    <p>Никакой воды. В каждом курсе — только то, что действительно нужно для понимания темы.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3>Структура</h3>
+                    <p>Вся информация разложена по полочкам: определения, списки, таблицы, алгоритмы.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Видео</h3>
+                    <p>Ссылки на полезные видео по каждой теме — можно посмотреть и закрепить материал.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>PDF-формат</h3>
+                    <p>Скачиваете, открываете на телефоне или компьютере, распечатываете — как удобно.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Секция -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Чем ваши курсы отличаются от обычных учебников ПДД?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Обычные учебники перегружены информацией, написаны сложным языком. В наших курсах мы оставляем только суть, объясняем простыми словами и структурируем так, чтобы материал действительно запоминался.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как я получу курс после оплаты?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Ссылка на PDF-файл откроется сразу после оплаты. Вы сможете скачать его на телефон, планшет или компьютер.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Обновляете ли вы материалы?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Да, мы следим за изменениями в ПДД и обновляем курсы. Если вы уже купили курс, новая версия придёт вам бесплатно.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли купить курс в подарок?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Да, просто отправьте ссылку на PDF другу после покупки.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VK секция -->
+    <section class="vk-section">
+        <div class="container">
+            <div class="vk-content">
+                <div class="vk-icon">
+                    <i class="fab fa-vk"></i>
+                </div>
+                <h2 class="vk-title">Присоединяйтесь к нам ВКонтакте</h2>
+                <p class="vk-text">Разборы задач, новости ПДД, изменения в правилах и обсуждения.</p>
+                <a href="https://vk.com/pdd_shpargalki" class="btn-vk" target="_blank">
+                    <i class="fab fa-vk"></i>
+                    Перейти в сообщество
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">ПДД Академия</div>
+                    <p class="footer-text">Обучающие курсы по правилам дорожного движения. Понятно, структурированно, без воды.</p>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h4 style="color: white; margin-bottom: 1.5rem;">Контакты</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> neurosprint.team@gmail.com</li>
+                        <li><i class="fab fa-vk me-2"></i> <a href="https://vk.com/pdd_shpargalki" target="_blank">ВКонтакте</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h4 style="color: white; margin-bottom: 1.5rem;">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="terms.html">Пользовательское соглашение</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 ПДД Академия</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie плашка -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-text">
+            👋 Продолжая пользоваться сайтом, вы соглашаетесь с <a href="policy.html">политикой конфиденциальности</a> и <a href="terms.html">пользовательским соглашением</a>.
+        </div>
+        <button class="btn-cookie" onclick="acceptCookies()">Принять</button>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookieConsent').classList.add('hidden');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieConsent').classList.add('hidden');
+            }
+            
+            // FAQ аккордеон
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+            
+            // Плавный скролл
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Яндекс.Метрика -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106112525', 'ym');
+
+        ym(106112525, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106112525" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+</body>
+</html>
