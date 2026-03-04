@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс «Обгон и опережение» — ПДД Шпаргалки</title>
+    
+    <!-- Мета-теги для SEO -->
+    <meta name="description" content="Полный курс по обгону и опережению. Разбор всех нюансов, типичные ошибки, алгоритмы безопасного обгона. Закройте эту тему раз и навсегда.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1a3b5c;
+            --accent: #ff6b4a;
+            --accent-light: #ff8a6f;
+            --text-primary: #1a2b3c;
+            --text-secondary: #4a5a6a;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 4px 20px rgba(10, 37, 64, 0.05);
+            --shadow-md: 0 10px 40px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 37, 64, 0.12);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Навигация */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .navbar-brand i {
+            color: var(--accent);
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Герой курса */
+        .course-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .course-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .course-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .course-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .course-hero .lead {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+        }
+
+        /* Секция "Для кого" */
+        .for-whom {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .whom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .whom-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            transition: transform 0.3s ease;
+        }
+
+        .whom-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .whom-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 107, 74, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .whom-item h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .whom-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Секция "Что внутри" */
+        .what-inside {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .inside-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .inside-item {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .inside-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 107, 74, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .inside-content h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .inside-content p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        /* Секция "Почему это важно" */
+        .importance {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .importance-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .importance-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .importance-text strong {
+            color: var(--primary);
+        }
+
+        /* Секция отзывов */
+        .testimonials {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .testimonial-meta {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Секция цены */
+        .pricing {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .pricing .price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 2rem 0;
+        }
+
+        .pricing .price small {
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .btn-buy {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 1.2rem 4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-buy:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            color: var(--primary);
+        }
+
+        .guarantee {
+            margin-top: 2rem;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 300px;
+        }
+
+        /* Футер */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 768px) {
+            .course-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .whom-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .inside-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing h2 {
+                font-size: 2.2rem;
+            }
+            
+            .pricing .price {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i>
+                ПДД Шпаргалки
+            </a>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> На главную
+            </a>
+        </div>
+    </nav>
+
+    <!-- Герой курса -->
+    <section class="course-hero">
+        <div class="container text-center">
+            <h1>Обгон и опережение</h1>
+            <p class="lead mx-auto">Полный разбор темы, которая вызывает больше всего вопросов у водителей. Поймите раз и навсегда, где можно обгонять, а где нельзя.</p>
+        </div>
+    </section>
+
+    <!-- Для кого этот курс -->
+    <section class="for-whom">
+        <div class="container">
+            <h2 class="section-title">Для кого этот курс</h2>
+            <p class="section-subtitle">Мы создавали этот курс для всех, кто хочет разобраться в теме обгона до мельчайших деталей</p>
+            
+            <div class="whom-grid">
+                <div class="whom-item">
+                    <div class="whom-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Начинающие водители</h3>
+                    <p>Только получили права и боитесь обгонять? Курс даст вам чёткий алгоритм и уверенность на дороге.</p>
+                </div>
+                <div class="whom-item">
+                    <div class="whom-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Опытные водители</h3>
+                    <p>Даже со стажем можно не знать всех нюансов. Систематизируйте знания и избавьтесь от пробелов.</p>
+                </div>
+                <div class="whom-item">
+                    <div class="whom-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Ученики автошкол</h3>
+                    <p>Готовитесь к экзамену? Тема обгона — одна из самых коварных. Разберите её досконально.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Что внутри -->
+    <section class="what-inside">
+        <div class="container">
+            <h2 class="section-title">Что внутри курса</h2>
+            <p class="section-subtitle">Всё, что нужно для полного понимания темы</p>
+            
+            <div class="inside-grid">
+                <div class="inside-item">
+                    <div class="inside-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="inside-content">
+                        <h4>Чёткие определения</h4>
+                        <p>Раз и навсегда разберётесь, чем обгон отличается от опережения и почему это критически важно</p>
+                    </div>
+                </div>
+                
+                <div class="inside-item">
+                    <div class="inside-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <div class="inside-content">
+                        <h4>Где обгон запрещён</h4>
+                        <p>Полный список мест, где обгонять нельзя ни при каких обстоятельствах. Запомните их раз и навсегда</p>
+                    </div>
+                </div>
+                
+                <div class="inside-item">
+                    <div class="inside-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="inside-content">
+                        <h4>Типичные ошибки</h4>
+                        <p>Разбор самых частых ошибок, из-за которых происходят аварии при обгоне</p>
+                    </div>
+                </div>
+                
+                <div class="inside-item">
+                    <div class="inside-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <div class="inside-content">
+                        <h4>Таблица штрафов</h4>
+                        <p>Все возможные штрафы за нарушения при обгоне — от административных до лишения прав</p>
+                    </div>
+                </div>
+                
+                <div class="inside-item">
+                    <div class="inside-icon">
+                        <i class="fas fa-list-ol"></i>
+                    </div>
+                    <div class="inside-content">
+                        <h4>Алгоритм действий</h4>
+                        <p>Пошаговый план безопасного обгона, который сработает в любой ситуации</p>
+                    </div>
+                </div>
+                
+                <div class="inside-item">
+                    <div class="inside-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="inside-content">
+                        <h4>Видео-разборы</h4>
+                        <p>Ссылки на лучшие видео по теме с подробными объяснениями и реальными примерами</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Почему это важно -->
+    <section class="importance">
+        <div class="container">
+            <h2 class="section-title">Почему это важно</h2>
+            <div class="importance-text">
+                <p>Обгон — самый опасный манёвр на дороге. <strong>Каждая третья авария со смертельным исходом</strong> происходит именно при обгоне. Причина почти всегда одна — непонимание правил или недооценка ситуации.</p>
+                <p>Большинство водителей уверены, что знают всё об обгоне. Но когда дело доходит до реальной ситуации, оказывается, что знаний недостаточно. Знакомая фраза «я не заметил встречную» или «мне показалось, что успею» — это цена ошибки.</p>
+                <p>Наш курс создан, чтобы таких ситуаций в вашей жизни не было. Вы получите не просто теорию, а реальное понимание — когда можно, когда нельзя, и что делать в сложных ситуациях.</p>
+                <p><strong>299 рублей</strong> — это цена одной поездки на такси. Или цена вашей безопасности на дороге на всю жизнь.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Что говорят наши ученики</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        «Долгое время боялся обгонять на трассе. После курса всё встало на свои места — теперь понимаю, когда можно, а когда лучше подождать. Спасибо за чёткие алгоритмы!»
+                    </div>
+                    <div class="testimonial-author">Алексей, 34 года</div>
+                    <div class="testimonial-meta">стаж 6 лет</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        «В автошколе эту тему объясняли как-то скомканно. Очень рада, что нашла ваш курс. Теперь чувствую себя увереннее, перестала бояться дальних поездок.»
+                    </div>
+                    <div class="testimonial-author">Елена, 28 лет</div>
+                    <div class="testimonial-meta">стаж 2 года</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        «Даже с 15-летним стажем нашёл для себя много нового. Оказывается, некоторые нюансы я трактовал неправильно. Спасибо за системный подход!»
+                    </div>
+                    <div class="testimonial-author">Сергей, 45 лет</div>
+                    <div class="testimonial-meta">стаж 15 лет</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        «Готовлюсь к экзамену в ГИБДД. Тема обгона всегда была проблемной. Курс помог разобраться раз и навсегда. Рекомендую!»
+                    </div>
+                    <div class="testimonial-author">Дмитрий, 19 лет</div>
+                    <div class="testimonial-meta">ученик автошколы</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цена -->
+    <section class="pricing">
+        <div class="container">
+            <h2>Получите курс прямо сейчас</h2>
+            <p class="lead">Полный разбор темы + видео-материалы + поддержка</p>
+            <div class="price">
+                299 ₽
+            </div>
+            <a href="#" class="btn-buy">Купить курс →</a>
+            <div class="guarantee">
+                <i class="fas fa-shield-alt me-2"></i>
+                100% гарантия качества. Если материал вам не подойдёт — вернём деньги
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как я получу курс после оплаты?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Сразу после оплаты вы получите ссылку на PDF-файл и все дополнительные материалы. Можно скачать на телефон, планшет или компьютер.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>А если я ничего не пойму?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Курс написан максимально простым и понятным языком. Но если вдруг у вас останутся вопросы, вы всегда можете написать нам — поможем разобраться.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Это только про обгон или есть другие темы?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Это отдельный курс, полностью посвящённый обгону и опережению. На сайте есть и другие курсы — по остановке и стоянке, а скоро появятся новые.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли вернуть деньги?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Да, мы даём 100% гарантию. Если материал вам не подойдёт, просто напишите нам в течение 14 дней — вернём деньги без вопросов.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>ПДД Шпаргалки</h4>
+                    <p>Академия правил дорожного движения</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="mailto:neurosprint.team@gmail.com">neurosprint.team@gmail.com</a><br>
+                    <a href="https://vk.com/pdd_shpargalki" target="_blank">ВКонтакте</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2026 ПДД Шпаргалки. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ аккордеон
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
