@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ПДД Шпаргалки | Академия правил дорожного движения</title>
+    
+    <!-- Мета-теги для SEO -->
+    <meta name="verify-admitad" content="ab621e135c" />
+    <meta name="description" content="ПДД Шпаргалки — академия правил дорожного движения. Полные курсы по обгону, остановке и стоянке. Все темы ПДД в удобном формате.">
+    <meta name="keywords" content="пдд, правила дорожного движения, пдд онлайн, билеты пдд, экзамен пдд, гибдд, подготовка к экзамену, обгон, опережение, остановка, стоянка, перекрестки, дорожные знаки, разметка, скорость, дтп, светофоры, пешеходы, начало движения, жд переезды, обязанности водителя, автошкола, вождение, права, водительское удостоверение, категория в, категория с, билеты гибдд, экзамен в гибдд, сдать экзамен, пдд для начинающих, пдд онлайн бесплатно, пдд 2026, изменения пдд, новые правила пдд">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Партнерская система -->
+    <script>
+        (function() {
+            const partnerNames = {
+                'pddpravila': 'ПДД | Правила Дорожного Движения',
+                'pro-pdd': 'PRO ПДД',
+                'doroga-pdd': 'ДОРОГА - ПДД',
+                'uroki-pdd': 'Уроки ПДД',
+                'lobnya': 'Лобненский маршрут ГАИ',
+                'default': 'сообщества'
+            };
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const ref = urlParams.get('ref');
+            
+            if (ref) {
+                const partnerData = { ref: ref, date: new Date().toISOString() };
+                const cookieValue = encodeURIComponent(JSON.stringify(partnerData));
+                document.cookie = `partner=${cookieValue}; path=/; max-age=2592000; samesite=lax`;
+                
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function() {
+                        showPartnerNotification(ref);
+                    });
+                } else {
+                    showPartnerNotification(ref);
+                }
+            }
+            
+            function showPartnerNotification(ref) {
+                const partnerName = partnerNames[ref] || partnerNames['default'];
+                
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    bottom: 20px;
+                    left: 20px;
+                    background: linear-gradient(135deg, #0a2540, #1a3b5c);
+                    color: white;
+                    padding: 15px 25px;
+                    border-radius: 50px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                    z-index: 9999;
+                    font-family: 'Inter', Arial, sans-serif;
+                    font-size: 14px;
+                    border-left: 4px solid #ff6b4a;
+                    animation: slideIn 0.5s ease;
+                    max-width: 400px;
+                `;
+                notification.innerHTML = `
+                    🎁 Вы перешли по ссылке от <strong>${partnerName}</strong>!<br>
+                    При покупке они получат часть дохода.
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.5s ease';
+                    setTimeout(() => notification.remove(), 500);
+                }, 5000);
+            }
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(-100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(-100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            window.getPartnerFromCookies = function() {
+                const cookies = document.cookie.split('; ');
+                for (let cookie of cookies) {
+                    if (cookie.startsWith('partner=')) {
+                        try {
+                            return JSON.parse(decodeURIComponent(cookie.substring(8)));
+                        } catch(e) {
+                            return null;
+                        }
+                    }
+                }
+                return null;
+            };
+        })();
+    </script>
+    
+    <style>
+        /* === ОСНОВНЫЕ ПЕРЕМЕННЫЕ === */
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1a3b5c;
+            --accent: #ff6b4a;
+            --accent-light: #ff8a6f;
+            --text-primary: #1a2b3c;
+            --text-secondary: #4a5a6a;
+            --text-light: #7a8a9a;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --bg-soft: #f8faff;
+            --shadow-sm: 0 4px 20px rgba(10, 37, 64, 0.05);
+            --shadow-md: 0 10px 40px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 37, 64, 0.12);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* === СКРЫТЫЕ SEO-КЛЮЧИ === */
+        .seo-keywords {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* === НАВИГАЦИЯ === */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-brand i {
+            font-size: 1.5rem;
+            color: var(--accent);
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+        }
+
+        /* === ГЕРОЙ СЕКЦИЯ === */
+        .hero {
+            min-height: 600px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            isolation: isolate;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(10, 37, 64, 0.85) 0%, rgba(26, 59, 92, 0.75) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 74, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            color: white;
+        }
+
+        /* === СЕКЦИЯ О ПРОЕКТЕ === */
+        .about-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+            text-align: center;
+        }
+
+        .about-section .container {
+            max-width: 800px;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 107, 74, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .benefit-item h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-list {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* === СЕКЦИЯ КУРСОВ === */
+        .courses-section {
+            padding: 5rem 0;
+            background: var(--bg-soft);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(10, 37, 64, 0.2);
+        }
+
+        .course-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+
+        .course-content {
+            padding: 2rem;
+        }
+
+        .course-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .course-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .course-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .course-meta i {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(10,37,64,0.05);
+        }
+
+        .course-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .btn-course {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-course:hover {
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(10, 37, 64, 0.3);
+            color: white;
+        }
+
+        /* === СЕКЦИЯ ШПАРГАЛОК === */
+        .shpargalki-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .shpargalki-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .shpargalka-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-md);
+            padding: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(10,37,64,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .shpargalka-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+
+        .shpargalka-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 107, 74, 0.1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .shpargalka-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .shpargalka-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .shpargalka-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(10,37,64,0.05);
+        }
+
+        .shpargalka-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .btn-shpargalka {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-shpargalka:hover {
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(10, 37, 64, 0.3);
+            color: white;
+        }
+
+        /* === БАНДЛ С ИЗОБРАЖЕНИЕМ === */
+        .bundle-section {
+            padding: 3rem 0;
+            background: var(--bg-soft);
+        }
+
+        .bundle-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            color: white;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bundle-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .bundle-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bundle-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bundle-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .bundle-card p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bundle-price {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .bundle-price small {
+            font-size: 2rem;
+            opacity: 0.7;
+            text-decoration: line-through;
+            margin-right: 1rem;
+        }
+
+        .btn-bundle {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 1.2rem 4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-bundle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            color: var(--primary);
+        }
+
+        /* === FAQ СЕКЦИЯ === */
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-soft);
+            border-radius: var(--radius-md);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid rgba(10, 37, 64, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--primary);
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(10, 37, 64, 0.02);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--accent);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 300px;
+        }
+
+        /* === VK СЕКЦИЯ === */
+        .vk-section {
+            background: linear-gradient(135deg, #0a2540 0%, #1a3b5c 100%);
+            padding: 5rem 0;
+            color: white;
+        }
+
+        .vk-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .vk-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .vk-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .vk-text {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .btn-vk {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-vk:hover {
+            transform: scale(1.05);
+            color: var(--primary);
+        }
+
+        /* === ФУТЕР === */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* === COOKIE ПЛАШКА === */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            z-index: 9999;
+            border-left: 4px solid var(--accent);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .cookie-consent.hidden {
+            transform: translateY(200%);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .cookie-text a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .btn-cookie {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 2rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cookie:hover {
+            background: var(--primary-light);
+        }
+
+        /* === АДАПТИВНОСТЬ === */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .shpargalki-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bundle-card {
+                padding: 2rem;
+            }
+            
+            .bundle-card h3 {
+                font-size: 1.8rem;
+            }
+            
+            .bundle-card p {
+                font-size: 1rem;
+            }
+            
+            .bundle-price {
+                font-size: 2.5rem;
+            }
+            
+            .bundle-price small {
+                font-size: 1.3rem;
+            }
+            
+            .btn-bundle {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+            
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .btn-cookie {
+                width: 100%;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Скрытые SEO-ключи -->
+    <div class="seo-keywords" aria-hidden="true">
+        пдд, правила дорожного движения, пдд онлайн, билеты пдд, экзамен пдд, гибдд, подготовка к экзамену, обгон, опережение, остановка, стоянка, перекрестки, дорожные знаки, разметка, скорость, дтп, светофоры, пешеходы, начало движения, жд переезды, обязанности водителя, автошкола, вождение, права, водительское удостоверение, категория в, категория с, билеты гибдд, экзамен в гибдд, сдать экзамен, пдд для начинающих, пдд онлайн бесплатно, пдд 2026, изменения пдд, новые правила пдд
+    </div>
+
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i>
+                ПДД Шпаргалки
+            </a>
+            <div class="nav-menu">
+                <a href="#about">О проекте</a>
+                <a href="#courses">Курсы</a>
+                <a href="#shpargalki">Шпаргалки</a>
+                <a href="#faq">Вопросы</a>
+                <a href="#vk">Сообщество</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция -->
+    <section class="hero">
+        <div class="hero-background">
+            <img src="https://s10.iimage.su/s/21/gLyMiAnxVXzewvM15XLL7u6eZQ9AzFmQljD6vp6cM.jpg" alt="Дорога">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>ПДД Шпаргалки — академия правил дорожного движения</h1>
+            <p>Полные курсы с глубоким разбором и компактные шпаргалки по 11 темам. Всё, чтобы разобраться в ПДД раз и навсегда.</p>
+            <div class="hero-buttons">
+                <a href="#courses" class="btn-primary">Начать с курсов →</a>
+                <a href="#about" class="btn-secondary">О проекте</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция о проекте -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <h2>О проекте</h2>
+            <div class="about-text">
+                <p>Мы не переписываем ПДД. Мы перерабатываем их так, чтобы сложные вещи стали простыми и понятными. Наши материалы — это результат анализа типичных ошибок и поиска самых эффективных способов объяснения.</p>
+                <p>Курсы — для глубокого понимания, чтобы закрыть тему раз и навсегда. Шпаргалки — для быстрого повторения и доступа к самой сути в любой момент.</p>
+            </div>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4>Экономия времени</h4>
+                    <p>Не нужно перечитывать страницы текста в поисках главного — всё уже структурировано и разложено по полочкам</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Реальное понимание</h4>
+                    <p>Никакой зубрёжки — только логика и алгоритмы, которые работают в реальных дорожных ситуациях</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4>Актуальность</h4>
+                    <p>Все материалы соответствуют последним изменениям в ПДД, обновления приходят бесплатно</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция курсов -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <h2 class="section-title">Полные курсы с глубоким разбором</h2>
+            <p class="section-subtitle">Чтобы закрыть тему раз и навсегда. Подробные объяснения, таблицы, алгоритмы и ссылки на видео.</p>
+            
+            <div class="courses-grid">
+                <!-- Курс 1: Обгон и опережение -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg" alt="Курс по обгону и опережению">
+                    </div>
+                    <div class="course-content">
+                        <h3>Обгон и опережение</h3>
+                        <p>Полный разбор темы: определения, где можно и где нельзя обгонять, типичные ошибки, штрафы, пошаговый алгоритм безопасного обгона.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-file-pdf"></i> 6 страниц</span>
+                            <span><i class="fas fa-video"></i> 2 видео</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">299 ₽</span>
+                            <a href="course-obgon.html" class="btn-course">Подробнее →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Курс 2: Остановка и стоянка -->
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://s10.iimage.su/s/03/gXWbGocxkFcmGGC5ffHinSTRIPHwNrOtwi97t6A5k.jpg" alt="Курс по остановке и стоянке">
+                    </div>
+                    <div class="course-content">
+                        <h3>Остановка и стоянка</h3>
+                        <p>Всё о том, где можно и нельзя останавливаться и стоять. Разбор знаков, табличек, штрафов, памятка для выбора места.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-file-pdf"></i> 7 страниц</span>
+                            <span><i class="fas fa-video"></i> 2 видео</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">299 ₽</span>
+                            <a href="course-stop.html" class="btn-course">Подробнее →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Заглушка для будущих курсов -->
+                <div class="course-card" style="opacity:0.8;">
+                    <div class="course-image" style="background: linear-gradient(135deg, #e0e0e0, #b0b0b0);">
+                    </div>
+                    <div class="course-content">
+                        <h3>Скоро в продаже</h3>
+                        <p>Готовятся курсы по проезду перекрёстков, скоростному режиму и другим темам. Следите за обновлениями.</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-file-pdf"></i> в разработке</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">скоро</span>
+                            <span class="btn-course" style="opacity:0.5; cursor:not-allowed;">Скоро →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция шпаргалок -->
+    <section class="shpargalki-section" id="shpargalki">
+        <div class="container">
+            <h2 class="section-title">11 шпаргалок по ключевым темам</h2>
+            <p class="section-subtitle">Короткие материалы, где от каждой темы осталась только суть. Без воды, без лишнего.</p>
+            
+            <div class="shpargalki-grid">
+                <!-- Шпаргалка 1 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Основные понятия</h3>
+                    <p>Термины ПДД простым языком. Чтобы понимать, о чём вообще речь в правилах.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product1.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 2 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3>Обгон и опережение</h3>
+                    <p>Где можно, где нельзя и почему это самая частая причина аварий.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product2.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 3 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h3>Остановка и стоянка</h3>
+                    <p>Где можно встать, а где лучше не надо, чтобы не пришлось выкупать машину со штрафстоянки.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product3.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 4 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-traffic-light"></i>
+                    </div>
+                    <h3>Проезд перекрестков</h3>
+                    <p>Кому уступать, когда у тебя главная, а когда лучше вообще не выезжать.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product4.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 5 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Скоростной режим</h3>
+                    <p>Сколько можно ехать в городе, за городом и когда можно и нужно прибавить.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product5.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 6 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3>Действия при ДТП</h3>
+                    <p>Что делать, если случилось. Пошагово, без паники. Сохрани, пригодится.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product6.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 7 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Световые сигналы</h3>
+                    <p>Когда включать дальний, когда ближний, и зачем нужны противотуманки.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product7.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 8 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <h3>Пешеходные переходы</h3>
+                    <p>Как не сбить человека и не получить штраф. Всё про «зебру».</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product8.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 9 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Начало движения</h3>
+                    <p>Как тронуться, перестроиться, повернуть и не создать пробку.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product9.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 10 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-train"></i>
+                    </div>
+                    <h3>Ж/д переезды</h3>
+                    <p>Правила проезда. Тут лучше не ошибаться — цена вопроса слишком высока.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product10.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+
+                <!-- Шпаргалка 11 -->
+                <div class="shpargalka-card">
+                    <div class="shpargalka-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3>Обязанности водителя</h3>
+                    <p>Что должно быть в машине, что нельзя делать за рулём и как не попасть на деньги.</p>
+                    <div class="shpargalka-footer">
+                        <span class="shpargalka-price">99 ₽</span>
+                        <a href="product11.html" class="btn-shpargalka">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Бандл с изображением -->
+    <section class="bundle-section">
+        <div class="container">
+            <div class="bundle-card">
+                <div class="bundle-background">
+                    <img src="https://s10.iimage.su/s/03/gYifEpFxEOKvMSXzLUJyXvnswqimOcrVJgkpyo9uj.jpg" alt="Дорога">
+                </div>
+                <div class="bundle-content">
+                    <h3>Все 11 шпаргалок одним комплектом</h3>
+                    <p>Полный набор материалов по всем темам ПДД. Экономия 50% при покупке комплекта.</p>
+                    <div class="bundle-price">
+                        <small>1 089 ₽</small>
+                        549 ₽
+                    </div>
+                    <a href="bundle.html" class="btn-bundle">Купить все шпаргалки →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Секция -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Чем отличаются курсы от шпаргалок?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Курсы — это полный разбор темы (6–7 страниц + ссылки на видео) с подробными объяснениями, таблицами и алгоритмами. Шпаргалки — это краткие материалы (2–3 страницы) с самой сутью темы для быстрого повторения.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как я получу материалы после оплаты?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Сразу после оплаты вы получите ссылку на PDF-файл. Можно скачать на телефон, планшет или компьютер, а при необходимости распечатать.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Обновляете ли вы материалы при изменениях в ПДД?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Да, мы следим за всеми изменениями и обновляем материалы. Если вы уже купили курс или шпаргалку, новая версия придёт вам бесплатно.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли купить курс в подарок?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Конечно! Просто отправьте ссылку на PDF другу после покупки.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Подойдут ли ваши материалы новичкам?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Да, все материалы написаны простым и понятным языком, без сложной юридической терминологии. Начинать лучше с курсов, а шпаргалки использовать для повторения.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VK секция -->
+    <section class="vk-section" id="vk">
+        <div class="container">
+            <div class="vk-content">
+                <div class="vk-icon">
+                    <i class="fab fa-vk"></i>
+                </div>
+                <h2 class="vk-title">Присоединяйтесь к нам ВКонтакте</h2>
+                <p class="vk-text">Разборы сложных задач, новости ПДД, изменения в правилах и обсуждения с единомышленниками.</p>
+                <a href="https://vk.com/pdd_shpargalki" class="btn-vk" target="_blank">
+                    <i class="fab fa-vk"></i>
+                    Перейти в сообщество
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">ПДД Шпаргалки</div>
+                    <p class="footer-text">Академия правил дорожного движения. Понятно, структурированно, эффективно.</p>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h4 style="color: white; margin-bottom: 1.5rem;">Контакты</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> neurosprint.team@gmail.com</li>
+                        <li><i class="fab fa-vk me-2"></i> <a href="https://vk.com/pdd_shpargalki" target="_blank">ВКонтакте</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h4 style="color: white; margin-bottom: 1.5rem;">Информация</h4>
+                    <ul class="footer-links">
+                        <li><a href="policy.html">Политика конфиденциальности</a></li>
+                        <li><a href="terms.html">Пользовательское соглашение</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 ПДД Шпаргалки — академия правил дорожного движения</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie плашка -->
+    <div class="cookie-consent" id="cookieConsent">
+        <div class="cookie-text">
+            👋 Продолжая пользоваться сайтом, вы соглашаетесь с <a href="policy.html">политикой конфиденциальности</a> и <a href="terms.html">пользовательским соглашением</a>.
+        </div>
+        <button class="btn-cookie" onclick="acceptCookies()">Принять</button>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function acceptCookies() {
+            document.getElementById('cookieConsent').classList.add('hidden');
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('cookiesAccepted') === 'true') {
+                document.getElementById('cookieConsent').classList.add('hidden');
+            }
+            
+            // FAQ аккордеон
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    faqItems.forEach(i => i.classList.remove('active'));
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+            
+            // Плавный скролл для навигации
+            document.querySelectorAll('.nav-menu a, a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Яндекс.Метрика -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106112525', 'ym');
+
+        ym(106112525, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106112525" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+</body>
+</html>
