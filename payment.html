@@ -1,42 +1,206 @@
-<link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.32.0">
-<form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
-
-    <!-- ДОБАВЛЕНО: customerNumber с product_id -->
-    <input type="hidden" name="customerNumber" id="customerNumber" value="">
-    
-    <div class="ym-customer-info">
-        <div class="ym-block-title">О покупателе</div>
-        <input name="cps_email" class="ym-input" placeholder="Email" type="text" value="" required>
-    </div>
-
-    <div class="ym-hidden-inputs">
-       <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/success.html">
-    </div>
-    
-    <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
-        <div class="ym-input-icon-rub ym-display-none">
-            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="99">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата - ПДД Шпаргалки</title>
+    <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf2 100%);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .payment-container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(10, 37, 64, 0.15);
+            overflow: hidden;
+            padding: 30px;
+        }
+        
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .payment-header h2 {
+            color: #0a2540;
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .payment-header p {
+            color: #4a5a6a;
+            font-size: 1rem;
+        }
+        
+        .product-info {
+            background: #f8faff;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(10, 37, 64, 0.05);
+        }
+        
+        .product-name {
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .product-price {
+            font-weight: 800;
+            color: #ff6b4a;
+            font-size: 1.8rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4a5a6a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #ff6b4a;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <h2>ПДД Шпаргалки</h2>
+            <p>Оплата учебных материалов</p>
         </div>
-        <button data-text="Заплатить" class="ym-btn-pay ym-result-price">
-            <span class="ym-text-crop">Заплатить</span>
-            <span class="ym-price-output"> 99,00&nbsp;₽</span>
-        </button>
-        <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.32.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+        
+        <div class="product-info" id="productInfo">
+            <!-- Заполняется скриптом -->
+        </div>
+
+        <!-- Форма оплаты ЮKassa (v1.33.0) -->
+        <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
+        <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
+            
+            <div class="ym-customer-info">
+                <div class="ym-block-title">О покупателе</div>
+                <input name="cps_email" class="ym-input" placeholder="Email" type="text" value="" required>
+            </div>
+
+            <div class="ym-hidden-inputs">
+                <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/success.html">
+            </div>
+
+            <!-- customerNumber будет заполнен скриптом -->
+            <input name="customerNumber" type="hidden" id="customerNumber" value="">
+            
+            <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
+                <div class="ym-input-icon-rub ym-display-none">
+                    <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="99" id="paymentSum">
+                </div>
+                <button data-text="Заплатить" class="ym-btn-pay ym-result-price">
+                    <span class="ym-text-crop">Заплатить</span> 
+                    <span class="ym-price-output" id="priceOutput">99,00&nbsp;₽</span>
+                </button>
+                <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+            </div>
+            
+            <input name="shopId" type="hidden" value="1256818">
+        </form>
+        <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
     </div>
-    
-    <input name="shopId" type="hidden" value="1256818">
-</form>
-<script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.32.0"></script>
 
-<!-- ДОБАВЛЕНО: Скрипт для передачи product_id -->
-<script>
-// Получаем product_id из URL
-const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('product') || '1';
+    <script>
+        // Названия товаров и цены
+        const products = {
+            '1': { name: 'Основные понятия', price: 99 },
+            '2': { name: 'Обгон и опережение', price: 99 },
+            '3': { name: 'Остановка и стоянка', price: 99 },
+            '4': { name: 'Проезд перекрестков', price: 99 },
+            '5': { name: 'Скоростной режим', price: 99 },
+            '6': { name: 'Действия при ДТП', price: 99 },
+            '7': { name: 'Световые сигналы', price: 99 },
+            '8': { name: 'Пешеходные переходы', price: 99 },
+            '9': { name: 'Начало движения', price: 99 },
+            '10': { name: 'Ж/д переезды', price: 99 },
+            '11': { name: 'Обязанности водителя', price: 99 },
+            'obgon': { name: 'Курс: Обгон и опережение', price: 299 },
+            'stop': { name: 'Курс: Остановка и стоянка', price: 299 },
+            'bundle': { name: 'Все 11 шпаргалок (комплект)', price: 549 }
+        };
 
-// Сохраняем в localStorage
-localStorage.setItem('last_paid_product', productId);
-
-// Передаем в customerNumber для ЮKassa
-document.getElementById('customerNumber').value = 'pdd_' + productId;
-</script>
+        // Получаем параметры из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let productId = urlParams.get('product') || '1';
+        let productPrice = urlParams.get('price') || '99';
+        
+        // Нормализация для курсов и бандлов
+        if (productId === 'obgon' || productId === 'stop' || productId === 'bundle') {
+            productPrice = products[productId]?.price || 299;
+        }
+        
+        // Получаем информацию о партнере из cookies
+        function getPartnerFromCookies() {
+            const cookies = document.cookie.split('; ');
+            for (let cookie of cookies) {
+                if (cookie.startsWith('partner=')) {
+                    try {
+                        return JSON.parse(decodeURIComponent(cookie.substring(8)));
+                    } catch(e) {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+        
+        // Сохраняем ID товара для success.html
+        localStorage.setItem('last_paid_product', productId);
+        
+        // Формируем customerNumber
+        const partner = getPartnerFromCookies();
+        let customerNumber = `pdd_${productId}`;
+        if (partner) {
+            customerNumber += `_ref_${partner.ref}`;
+        }
+        document.getElementById('customerNumber').value = customerNumber;
+        
+        // Обновляем информацию о товаре на странице
+        const productInfo = document.getElementById('productInfo');
+        let productDisplayName = '';
+        let displayPrice = productPrice;
+        
+        if (products[productId]) {
+            productDisplayName = products[productId].name;
+            displayPrice = products[productId].price;
+        } else {
+            productDisplayName = `Товар ${productId}`;
+        }
+        
+        productInfo.innerHTML = `
+            <div class="product-name">${productDisplayName}</div>
+            <div class="product-price">${displayPrice} ₽</div>
+        `;
+        
+        // Обновляем сумму в форме
+        document.getElementById('paymentSum').value = displayPrice;
+        document.getElementById('priceOutput').innerHTML = `${displayPrice},00&nbsp;₽`;
+        
+        console.log('✅ Страница оплаты готова. Product:', productId, 'Price:', displayPrice, 'Customer:', customerNumber);
+    </script>
+</body>
+</html>
