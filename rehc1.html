@@ -94,7 +94,7 @@
             color: var(--accent);
         }
 
-        /* Герой курса (только фон, без дублирования) */
+        /* Герой курса - ТОЛЬКО ФОН (некликабельный) */
         .course-hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
@@ -103,15 +103,18 @@
             overflow: hidden;
         }
 
-        .course-hero-image {
+        .course-hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-image: url('https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg');
+            background-size: cover;
+            background-position: center;
             opacity: 0.2;
             z-index: 0;
+            pointer-events: none; /* Делает фон некликабельным */
         }
 
         .course-hero .container {
@@ -239,7 +242,7 @@
             font-size: 0.95rem;
         }
 
-        /* Секция оплаты */
+        /* Секция оплаты - ИСПРАВЛЕННАЯ ФОРМА */
         .payment-section {
             padding: 5rem 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -299,64 +302,69 @@
             margin-top: 0.5rem;
         }
 
+        /* ОРИГИНАЛЬНАЯ ФОРМА ЮKASSA (исправленная) */
         .payment-form {
-            max-width: 500px;
-            margin: 0 auto;
+            width: 100%;
         }
-
+        
         .ym-customer-info {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
-
+        
         .ym-block-title {
+            font-size: 16px;
             font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
+            color: #333;
+            margin-bottom: 8px;
         }
-
+        
         .ym-input {
             width: 100%;
-            padding: 1rem;
+            padding: 12px 15px;
             border: 2px solid #e0e7ff;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 16px;
             transition: border-color 0.3s ease;
+            box-sizing: border-box;
         }
-
+        
         .ym-input:focus {
             outline: none;
             border-color: var(--accent);
         }
-
+        
+        .ym-hidden-inputs {
+            display: none;
+        }
+        
         .ym-payment-btn-block {
             text-align: center;
+            margin-top: 20px;
+            position: relative;
         }
-
+        
         .ym-btn-pay {
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
             border: none;
-            padding: 1.2rem 3rem;
+            padding: 15px 30px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             box-shadow: 0 10px 30px rgba(255, 107, 74, 0.3);
+            border: none;
         }
-
+        
         .ym-btn-pay:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(255, 107, 74, 0.4);
         }
-
-        .ym-price-output {
-            margin-left: 0.5rem;
-        }
-
+        
         .ym-logo {
-            margin-top: 1rem;
+            margin-top: 15px;
             height: 27px;
         }
 
@@ -372,7 +380,7 @@
             margin-right: 0.5rem;
         }
 
-        /* Футер (выровненный) */
+        /* Футер */
         .footer {
             background: var(--primary);
             color: white;
@@ -458,9 +466,9 @@
         </div>
     </nav>
 
-    <!-- Герой курса (только фоновая картинка) -->
+    <!-- Герой курса - ТОЛЬКО ФОН (некликабельный) -->
     <section class="course-hero">
-        <img src="https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg" alt="Обгон" class="course-hero-image">
+        <div class="course-hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <h1>Обгон и опережение</h1>
@@ -469,7 +477,7 @@
         </div>
     </section>
 
-    <!-- О курсе (с новым изображением знака) -->
+    <!-- О курсе (с изображением знака) -->
     <section class="about-course">
         <div class="container">
             <h2 class="section-title">О курсе</h2>
@@ -554,7 +562,7 @@
         </div>
     </section>
 
-    <!-- Секция оплаты -->
+    <!-- Секция оплаты - ОРИГИНАЛЬНАЯ РАБОЧАЯ ФОРМА -->
     <section class="payment-section">
         <div class="container">
             <div class="payment-wrapper">
@@ -569,36 +577,36 @@
                     <div class="price-note">Доступно сразу после оплаты</div>
                 </div>
                 
-                <div class="payment-form">
-                    <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
-                    <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
-                        
-                        <div class="ym-customer-info">
-                            <div class="ym-block-title">Email для получения материалов</div>
-                            <input name="cps_email" class="ym-input" placeholder="Ваш email" type="text" value="" required>
-                        </div>
+                <!-- ОРИГИНАЛЬНАЯ ФОРМА ЮKASSA (из вашего примера) -->
+                <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
+                <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
+                    
+                    <div class="ym-customer-info">
+                        <div class="ym-block-title">О покупателе</div>
+                        <input name="cps_email" class="ym-input" placeholder="Email" type="text" value="" required>
+                    </div>
 
-                        <div class="ym-hidden-inputs">
-                            <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/success.html">
-                        </div>
+                    <div class="ym-hidden-inputs">
+                        <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/success.html">
+                    </div>
 
-                        <input name="customerNumber" type="hidden" id="customerNumber" value="obgon_299">
-                        
-                        <div class="ym-payment-btn-block">
-                            <div class="ym-input-icon-rub ym-display-none">
-                                <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="299" id="paymentSum">
-                            </div>
-                            <button data-text="Купить курс" class="ym-btn-pay">
-                                <span class="ym-text-crop">Купить курс</span> 
-                                <span class="ym-price-output">299,00&nbsp;₽</span>
-                            </button>
-                            <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+                    <!-- customerNumber будет заполнен скриптом -->
+                    <input name="customerNumber" type="hidden" id="customerNumber" value="">
+                    
+                    <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
+                        <div class="ym-input-icon-rub ym-display-none">
+                            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="299" id="paymentSum">
                         </div>
-                        
-                        <input name="shopId" type="hidden" value="1256818">
-                    </form>
-                    <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
-                </div>
+                        <button data-text="Заплатить" class="ym-btn-pay ym-result-price">
+                            <span class="ym-text-crop">Заплатить</span> 
+                            <span class="ym-price-output">299,00&nbsp;₽</span>
+                        </button>
+                        <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+                    </div>
+                    
+                    <input name="shopId" type="hidden" value="1256818">
+                </form>
+                <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
                 
                 <div class="guarantee">
                     <i class="fas fa-shield-alt"></i>
@@ -608,7 +616,7 @@
         </div>
     </section>
 
-    <!-- Футер (выровненный, с ссылками на политику и соглашение) -->
+    <!-- Футер -->
     <footer class="footer">
         <div class="container">
             <div class="footer-row">
@@ -653,6 +661,13 @@
             customerNumber += `_ref_${partner.ref}`;
         }
         document.getElementById('customerNumber').value = customerNumber;
+        
+        // Убеждаемся, что сумма в форме правильная
+        if (document.getElementById('paymentSum')) {
+            document.getElementById('paymentSum').value = '299';
+        }
+        
+        console.log('✅ Страница курса готова, customerNumber:', customerNumber);
     </script>
 </body>
 </html>
