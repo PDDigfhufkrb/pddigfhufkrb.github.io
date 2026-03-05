@@ -94,7 +94,7 @@
             color: var(--accent);
         }
 
-        /* Герой курса - ТОЛЬКО ФОН (некликабельный) */
+        /* Герой курса */
         .course-hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
@@ -114,7 +114,7 @@
             background-position: center;
             opacity: 0.2;
             z-index: 0;
-            pointer-events: none; /* Делает фон некликабельным */
+            pointer-events: none;
         }
 
         .course-hero .container {
@@ -242,44 +242,40 @@
             font-size: 0.95rem;
         }
 
-        /* Секция оплаты - ИСПРАВЛЕННАЯ ФОРМА */
-        .payment-section {
+        /* Секция покупки */
+        .buy-section {
             padding: 5rem 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
         }
 
-        .payment-wrapper {
+        .buy-wrapper {
             max-width: 800px;
             margin: 0 auto;
             background: white;
             border-radius: var(--radius-lg);
             padding: 3rem;
             box-shadow: var(--shadow-lg);
-        }
-
-        .payment-header {
             text-align: center;
-            margin-bottom: 2rem;
         }
 
-        .payment-header h2 {
+        .buy-header h2 {
             color: var(--primary);
             font-size: 2rem;
             font-weight: 800;
             margin-bottom: 0.5rem;
         }
 
-        .payment-header p {
+        .buy-header p {
             color: var(--text-secondary);
             font-size: 1rem;
+            margin-bottom: 2rem;
         }
 
         .price-box {
             background: linear-gradient(135deg, #f8faff, #e8ecf5);
             border-radius: var(--radius-md);
             padding: 2rem;
-            text-align: center;
             margin-bottom: 2rem;
         }
 
@@ -302,82 +298,41 @@
             margin-top: 0.5rem;
         }
 
-        /* ОРИГИНАЛЬНАЯ ФОРМА ЮKASSA (исправленная) */
-        .payment-form {
-            width: 100%;
-        }
-        
-        .ym-customer-info {
-            margin-bottom: 20px;
-        }
-        
-        .ym-block-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        
-        .ym-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e7ff;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-            box-sizing: border-box;
-        }
-        
-        .ym-input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-        
-        .ym-hidden-inputs {
-            display: none;
-        }
-        
-        .ym-payment-btn-block {
-            text-align: center;
-            margin-top: 20px;
-            position: relative;
-        }
-        
-        .ym-btn-pay {
+        .btn-buy {
+            display: inline-block;
             background: linear-gradient(135deg, var(--accent), var(--accent-light));
             color: white;
             border: none;
-            padding: 15px 30px;
+            padding: 1.2rem 4rem;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 18px;
-            cursor: pointer;
+            font-size: 1.3rem;
+            text-decoration: none;
             transition: all 0.3s ease;
-            width: 100%;
             box-shadow: 0 10px 30px rgba(255, 107, 74, 0.3);
-            border: none;
-        }
-        
-        .ym-btn-pay:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 74, 0.4);
-        }
-        
-        .ym-logo {
-            margin-top: 15px;
-            height: 27px;
+            margin-bottom: 1.5rem;
         }
 
-        .guarantee {
-            text-align: center;
-            margin-top: 2rem;
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 74, 0.4);
+            color: white;
+        }
+
+        .payment-info {
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
-        .guarantee i {
+        .payment-info i {
             color: var(--accent);
-            margin-right: 0.5rem;
+            margin-right: 0.3rem;
+        }
+
+        .payment-info img {
+            height: 20px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
         }
 
         /* Футер */
@@ -441,6 +396,10 @@
         }
 
         @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
             .footer-row {
                 flex-direction: column;
                 text-align: center;
@@ -448,6 +407,10 @@
             
             .footer-links {
                 justify-content: center;
+            }
+            
+            .inside-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -466,7 +429,7 @@
         </div>
     </nav>
 
-    <!-- Герой курса - ТОЛЬКО ФОН (некликабельный) -->
+    <!-- Герой курса -->
     <section class="course-hero">
         <div class="course-hero-bg"></div>
         <div class="container">
@@ -477,7 +440,7 @@
         </div>
     </section>
 
-    <!-- О курсе (с изображением знака) -->
+    <!-- О курсе -->
     <section class="about-course">
         <div class="container">
             <h2 class="section-title">О курсе</h2>
@@ -515,7 +478,7 @@
                     </div>
                     <div class="inside-content">
                         <h4>Где обгон запрещён</h4>
-                        <p>Полный список мест, где обгонять нельзя ни при каких обстоятельствах</p>
+                        <p>Полный список мест, где обгонять нельзя</p>
                     </div>
                 </div>
                 
@@ -562,11 +525,11 @@
         </div>
     </section>
 
-    <!-- Секция оплаты - ОРИГИНАЛЬНАЯ РАБОЧАЯ ФОРМА -->
-    <section class="payment-section">
+    <!-- Секция покупки (ПРОСТАЯ ССЫЛКА НА ОПЛАТУ) -->
+    <section class="buy-section">
         <div class="container">
-            <div class="payment-wrapper">
-                <div class="payment-header">
+            <div class="buy-wrapper">
+                <div class="buy-header">
                     <h2>Курс «Обгон и опережение»</h2>
                     <p>PDF-файл + ссылки на видео</p>
                 </div>
@@ -577,40 +540,14 @@
                     <div class="price-note">Доступно сразу после оплаты</div>
                 </div>
                 
-                <!-- ОРИГИНАЛЬНАЯ ФОРМА ЮKASSA (из вашего примера) -->
-                <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
-                <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
-                    
-                    <div class="ym-customer-info">
-                        <div class="ym-block-title">О покупателе</div>
-                        <input name="cps_email" class="ym-input" placeholder="Email" type="text" value="" required>
-                    </div>
-
-                    <div class="ym-hidden-inputs">
-                        <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/success.html">
-                    </div>
-
-                    <!-- customerNumber будет заполнен скриптом -->
-                    <input name="customerNumber" type="hidden" id="customerNumber" value="">
-                    
-                    <div class="ym-payment-btn-block ym-before-line ym-align-space-between">
-                        <div class="ym-input-icon-rub ym-display-none">
-                            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="299" id="paymentSum">
-                        </div>
-                        <button data-text="Заплатить" class="ym-btn-pay ym-result-price">
-                            <span class="ym-text-crop">Заплатить</span> 
-                            <span class="ym-price-output">299,00&nbsp;₽</span>
-                        </button>
-                        <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
-                    </div>
-                    
-                    <input name="shopId" type="hidden" value="1256818">
-                </form>
-                <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
+                <!-- ПРОСТАЯ ССЫЛКА НА СТРАНИЦУ ОПЛАТЫ -->
+                <a href="oplata.html?product=obgon&price=299" class="btn-buy">
+                    <i class="fas fa-lock me-2"></i>Перейти к оплате
+                </a>
                 
-                <div class="guarantee">
-                    <i class="fas fa-shield-alt"></i>
-                    PDF придёт на email сразу после оплаты
+                <div class="payment-info">
+                    <i class="fas fa-shield-alt"></i> Безопасная оплата через ЮKassa
+                    <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg" alt="ЮKassa">
                 </div>
             </div>
         </div>
@@ -637,7 +574,10 @@
     </footer>
 
     <script>
-        // Получаем информацию о партнере из cookies
+        // Сохраняем информацию о том, что это курс "обгон"
+        localStorage.setItem('last_paid_product', 'obgon');
+        
+        // Получаем информацию о партнере из cookies и добавляем в ссылку
         function getPartnerFromCookies() {
             const cookies = document.cookie.split('; ');
             for (let cookie of cookies) {
@@ -652,22 +592,14 @@
             return null;
         }
         
-        // Сохраняем ID товара и партнера
-        localStorage.setItem('last_paid_product', 'obgon');
-        
         const partner = getPartnerFromCookies();
-        let customerNumber = 'obgon_299';
         if (partner) {
-            customerNumber += `_ref_${partner.ref}`;
+            // Если есть партнер, добавляем его в ссылку
+            const buyButton = document.querySelector('.btn-buy');
+            if (buyButton) {
+                buyButton.href = `oplata.html?product=obgon&price=299&ref=${partner.ref}`;
+            }
         }
-        document.getElementById('customerNumber').value = customerNumber;
-        
-        // Убеждаемся, что сумма в форме правильная
-        if (document.getElementById('paymentSum')) {
-            document.getElementById('paymentSum').value = '299';
-        }
-        
-        console.log('✅ Страница курса готова, customerNumber:', customerNumber);
     </script>
 </body>
 </html>
