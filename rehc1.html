@@ -94,7 +94,7 @@
             color: var(--accent);
         }
 
-        /* Герой курса */
+        /* Герой курса (только фон, без дублирования) */
         .course-hero {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
@@ -110,20 +110,14 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.15;
+            opacity: 0.2;
             z-index: 0;
         }
 
         .course-hero .container {
             position: relative;
             z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .hero-content {
-            max-width: 600px;
+            text-align: center;
         }
 
         .hero-content h1 {
@@ -137,37 +131,9 @@
             font-size: 1.2rem;
             opacity: 0.95;
             margin-bottom: 0;
-        }
-
-        .hero-image {
-            width: 300px;
-            height: 300px;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            border: 3px solid rgba(255,255,255,0.2);
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media (max-width: 768px) {
-            .course-hero .container {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content {
-                margin-bottom: 2rem;
-            }
-            
-            .hero-image {
-                width: 250px;
-                height: 250px;
-            }
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Секция "О курсе" */
@@ -406,79 +372,75 @@
             margin-right: 0.5rem;
         }
 
-        /* FAQ */
-        .faq-section {
-            padding: 5rem 0;
-            background: var(--bg-white);
-        }
-
-        .faq-grid {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--bg-light);
-            border-radius: var(--radius-md);
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .faq-question i {
-            transition: transform 0.3s ease;
-            color: var(--accent);
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            color: var(--text-secondary);
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            max-height: 200px;
-        }
-
-        /* Футер */
+        /* Футер (выровненный) */
         .footer {
             background: var(--primary);
             color: white;
             padding: 3rem 0 1.5rem;
         }
 
-        .footer a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        .footer a:hover {
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand h4 {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
             color: white;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 1.5rem;
             margin-top: 2rem;
             text-align: center;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -496,7 +458,7 @@
         </div>
     </nav>
 
-    <!-- Герой курса -->
+    <!-- Герой курса (только фоновая картинка) -->
     <section class="course-hero">
         <img src="https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg" alt="Обгон" class="course-hero-image">
         <div class="container">
@@ -504,13 +466,10 @@
                 <h1>Обгон и опережение</h1>
                 <p class="lead">Полный разбор темы, которая вызывает больше всего вопросов у водителей. Поймите раз и навсегда, где можно обгонять, а где нельзя.</p>
             </div>
-            <div class="hero-image">
-                <img src="https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg" alt="Обложка курса">
-            </div>
         </div>
     </section>
 
-    <!-- О курсе -->
+    <!-- О курсе (с новым изображением знака) -->
     <section class="about-course">
         <div class="container">
             <h2 class="section-title">О курсе</h2>
@@ -521,7 +480,7 @@
                     <p>Наш курс создан, чтобы таких ситуаций в вашей жизни не было. Вы получите не просто теорию, а реальное понимание — когда можно, когда нельзя, и что делать в сложных ситуациях.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg" alt="О курсе">
+                    <img src="https://s10.iimage.su/s/05/gKA6dgDx9LrfYgw7zJ9RGDyVZCymWdqn8DXdvDYel.jpg" alt="Знак обгон запрещен">
                 </div>
             </div>
         </div>
@@ -649,54 +608,17 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Часто задаваемые вопросы</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Как я получу курс после оплаты?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        Сразу после оплаты PDF-файл и ссылки на видео придут на указанный email.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>А если у меня останутся вопросы?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        Можете написать нам — поможем разобраться.
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Обновляются ли материалы?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        Да, при изменениях в ПДД обновляем материалы бесплатно.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
+    <!-- Футер (выровненный, с ссылками на политику и соглашение) -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
+            <div class="footer-row">
+                <div class="footer-brand">
                     <h4>ПДД Шпаргалки</h4>
                     <p>Академия правил дорожного движения</p>
                 </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="mailto:neurosprint.team@gmail.com">neurosprint.team@gmail.com</a><br>
+                <div class="footer-links">
+                    <a href="policy.html">Политика конфиденциальности</a>
+                    <a href="terms.html">Пользовательское соглашение</a>
                     <a href="https://vk.com/pdd_shpargalki" target="_blank">ВКонтакте</a>
                 </div>
             </div>
@@ -707,14 +629,6 @@
     </footer>
 
     <script>
-        // FAQ аккордеон
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                item.classList.toggle('active');
-            });
-        });
-        
         // Получаем информацию о партнере из cookies
         function getPartnerFromCookies() {
             const cookies = document.cookie.split('; ');
