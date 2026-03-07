@@ -524,34 +524,33 @@
             </div>
         </div>
     </section>
-
-    <!-- Секция покупки (ПРОСТАЯ ССЫЛКА НА ОПЛАТУ) -->
-    <section class="buy-section">
-        <div class="container">
-            <div class="buy-wrapper">
-                <div class="buy-header">
-                    <h2>Курс «Обгон и опережение»</h2>
-                    <p>PDF-файл + ссылки на видео</p>
-                </div>
-                
-                <div class="price-box">
-                    <span class="old-price">990 ₽</span>
-                    <span class="current-price">299 ₽</span>
-                    <div class="price-note">Доступно сразу после оплаты</div>
-                </div>
-                
-                <!-- ПРОСТАЯ ССЫЛКА НА СТРАНИЦУ ОПЛАТЫ -->
-                <a href="oplata.html?product=obgon&price=299" class="btn-buy">
-                    <i class="fas fa-lock me-2"></i>Перейти к оплате
-                </a>
-                
-                <div class="payment-info">
-                    <i class="fas fa-shield-alt"></i> Безопасная оплата через ЮKassa
-                    <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg" alt="ЮKassa">
-                </div>
+<!-- В секции покупки меняем ссылку -->
+<section class="buy-section">
+    <div class="container">
+        <div class="buy-wrapper">
+            <div class="buy-header">
+                <h2>Курс «Обгон и опережение»</h2>
+                <p>PDF-файл + ссылки на видео</p>
+            </div>
+            
+            <div class="price-box">
+                <span class="old-price">990 ₽</span>
+                <span class="current-price">299 ₽</span>
+                <div class="price-note">Доступно сразу после оплаты</div>
+            </div>
+            
+            <!-- ССЫЛКА НА НОВУЮ СТРАНИЦУ ОПЛАТЫ КУРСОВ -->
+            <a href="course-payment.html?course=obgon" class="btn-buy">
+                <i class="fas fa-lock me-2"></i>Перейти к оплате
+            </a>
+            
+            <div class="payment-info">
+                <i class="fas fa-shield-alt"></i> Безопасная оплата через ЮKassa
+                <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg" alt="ЮKassa">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Футер -->
     <footer class="footer">
