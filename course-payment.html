@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата курса - ПДД Шпаргалки</title>
+    
+    <!-- Мета-теги для SEO -->
+    <meta name="description" content="Оплата курсов по ПДД. Полные курсы с глубоким разбором тем.">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1a3b5c;
+            --accent: #ff6b4a;
+            --accent-light: #ff8a6f;
+            --text-primary: #1a2b3c;
+            --text-secondary: #4a5a6a;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 4px 20px rgba(10, 37, 64, 0.05);
+            --shadow-md: 0 10px 40px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 37, 64, 0.12);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf2 100%);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .payment-container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            padding: 30px;
+        }
+        
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .payment-header h2 {
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .payment-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .product-info {
+            background: linear-gradient(135deg, #f8faff, #e8ecf5);
+            border-radius: var(--radius-md);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(10, 37, 64, 0.05);
+        }
+        
+        .product-name {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+        
+        .product-price {
+            font-weight: 800;
+            color: var(--accent);
+            font-size: 2.2rem;
+        }
+        
+        .product-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--accent);
+        }
+        
+        /* Стили для формы ЮKassa */
+        .ym-customer-info {
+            margin-bottom: 20px;
+        }
+        
+        .ym-block-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .ym-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        
+        .ym-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        
+        .ym-hidden-inputs {
+            display: none;
+        }
+        
+        .ym-payment-btn-block {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .ym-btn-pay {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(255, 107, 74, 0.3);
+        }
+        
+        .ym-btn-pay:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 74, 0.4);
+        }
+        
+        .ym-logo {
+            margin-top: 15px;
+            height: 27px;
+        }
+        
+        .guarantee {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .guarantee i {
+            color: var(--accent);
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-header">
+            <h2>ПДД Шпаргалки</h2>
+            <p>Оплата курсов с глубоким разбором</p>
+        </div>
+        
+        <div class="product-info" id="productInfo">
+            <!-- Заполняется скриптом -->
+        </div>
+
+        <!-- Форма оплаты ЮKassa -->
+        <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
+        <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
+            
+            <div class="ym-customer-info">
+                <div class="ym-block-title">Email для получения материалов</div>
+                <input name="cps_email" class="ym-input" placeholder="Ваш email" type="text" value="" required>
+            </div>
+
+            <div class="ym-hidden-inputs">
+                <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/course-success.html">
+            </div>
+
+            <input name="customerNumber" type="hidden" id="customerNumber" value="">
+            
+            <div class="ym-payment-btn-block">
+                <div class="ym-input-icon-rub ym-display-none">
+                    <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="299" id="paymentSum">
+                </div>
+                <button data-text="Оплатить курс" class="ym-btn-pay">
+                    <span class="ym-text-crop">Оплатить курс</span> 
+                    <span class="ym-price-output" id="priceOutput">299,00&nbsp;₽</span>
+                </button>
+                <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+            </div>
+            
+            <input name="shopId" type="hidden" value="1256818">
+        </form>
+        <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
+
+        <a href="index.html" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <script>
+        // Названия и параметры курсов
+        const courses = {
+            'obgon': {
+                name: 'Курс «Обгон и опережение»',
+                price: 299,
+                description: 'Полный разбор темы: определения, где можно и нельзя обгонять, типичные ошибки, штрафы, пошаговый алгоритм.'
+            },
+            'stop': {
+                name: 'Курс «Остановка и стоянка»',
+                price: 299,
+                description: 'Всё о том, где можно и нельзя останавливаться и стоять. Разбор знаков, табличек, штрафов, памятка для выбора места.'
+            }
+        };
+
+        // Получаем параметры из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        let courseId = urlParams.get('course') || 'obgon';
+        
+        // Проверяем, что курс существует
+        if (!courses[courseId]) {
+            courseId = 'obgon';
+        }
+        
+        const course = courses[courseId];
+        
+        // Получаем информацию о партнере из cookies
+        function getPartnerFromCookies() {
+            const cookies = document.cookie.split('; ');
+            for (let cookie of cookies) {
+                if (cookie.startsWith('partner=')) {
+                    try {
+                        return JSON.parse(decodeURIComponent(cookie.substring(8)));
+                    } catch(e) {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+        
+        // Сохраняем ID курса для страницы успеха
+        localStorage.setItem('last_paid_course', courseId);
+        
+        // Формируем customerNumber
+        const partner = getPartnerFromCookies();
+        let customerNumber = `course_${courseId}_299`;
+        if (partner) {
+            customerNumber += `_ref_${partner.ref}`;
+        }
+        document.getElementById('customerNumber').value = customerNumber;
+        
+        // Обновляем информацию о курсе на странице
+        const productInfo = document.getElementById('productInfo');
+        productInfo.innerHTML = `
+            <div class="product-name">${course.name}</div>
+            <div class="product-price">${course.price} ₽</div>
+            <div class="product-description">${course.description}</div>
+        `;
+        
+        // Обновляем сумму в форме
+        document.getElementById('paymentSum').value = course.price;
+        document.getElementById('priceOutput').innerHTML = `${course.price},00&nbsp;₽`;
+        
+        console.log('✅ Страница оплаты курса готова. Курс:', courseId, 'Цена:', course.price);
+    </script>
+</body>
+</html>
