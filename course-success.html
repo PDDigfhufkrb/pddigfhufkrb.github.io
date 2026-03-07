@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата успешна - ПДД Шпаргалки (курсы)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f7fa;
+        }
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+        .success-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(10, 37, 64, 0.15);
+            text-align: center;
+        }
+        .success-icon {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #0a2540;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        .course-info {
+            background: linear-gradient(135deg, #f8faff, #e8ecf5);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .course-info h3 {
+            color: #0a2540;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .course-info p {
+            color: #4a5a6a;
+            margin-bottom: 10px;
+        }
+        .course-info i {
+            color: #ff6b4a;
+            width: 24px;
+            margin-right: 10px;
+        }
+        .download-section {
+            margin: 30px 0;
+        }
+        .btn-download {
+            display: inline-block;
+            background: linear-gradient(135deg, #0a2540, #1a3b5c);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(10, 37, 64, 0.2);
+        }
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(10, 37, 64, 0.3);
+            color: white;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4a5a6a;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .btn-back:hover {
+            color: #ff6b4a;
+        }
+        .help-text {
+            margin-top: 20px;
+            color: #4a5a6a;
+            font-size: 0.9rem;
+        }
+        .help-text a {
+            color: #ff6b4a;
+            text-decoration: none;
+        }
+        .whats-inside {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(10, 37, 64, 0.05);
+            text-align: left;
+        }
+        .whats-inside h4 {
+            color: #0a2540;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .whats-inside ul {
+            list-style: none;
+            padding: 0;
+        }
+        .whats-inside li {
+            margin-bottom: 10px;
+            color: #4a5a6a;
+        }
+        .whats-inside i {
+            color: #ff6b4a;
+            width: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-card">
+            <div class="success-icon">✅</div>
+            <h1>Оплата успешно завершена!</h1>
+            <p class="lead">Спасибо за покупку. Ваш курс готов к изучению.</p>
+            
+            <div class="course-info" id="courseInfo">
+                <!-- Информация о курсе подставится скриптом -->
+            </div>
+            
+            <div class="whats-inside" id="whatsInside">
+                <!-- Что внутри курса подставится скриптом -->
+            </div>
+            
+            <div class="download-section" id="downloadSection">
+                <!-- Ссылка на курс подставится скриптом -->
+            </div>
+            
+            <div class="help-text">
+                Не открывается файл? <a href="mailto:neurosprint.team@gmail.com">Напишите нам</a>
+            </div>
+            
+            <a href="index.html" class="btn-back">← Вернуться на главную</a>
+        </div>
+    </div>
+
+    <script>
+        // Ссылки на файлы курсов (Google Drive)
+        const courseFiles = {
+            'obgon': 'https://drive.google.com/file/d/1Mqje4DjDxaRDQcWgSEmFRGPcFQVrSpbt/view?usp=sharing',
+            'stop': 'https://drive.google.com/file/d/11nKsMstQhSjsk-XrArDJWb2oqI8vQ45b/view?usp=sharing'
+        };
+        
+        // Названия и описания курсов
+        const courseDetails = {
+            'obgon': {
+                name: 'Курс «Обгон и опережение»',
+                description: 'Полный разбор темы: определения, где можно и нельзя обгонять, типичные ошибки, штрафы, пошаговый алгоритм.',
+                inside: [
+                    'Чёткие определения обгона и опережения',
+                    'Полный список мест, где обгон запрещён',
+                    'Разбор типичных ошибок при обгоне',
+                    'Таблица штрафов за нарушения',
+                    'Пошаговый алгоритм безопасного обгона',
+                    'Ссылки на полезные видео по теме'
+                ]
+            },
+            'stop': {
+                name: 'Курс «Остановка и стоянка»',
+                description: 'Всё о том, где можно и нельзя останавливаться и стоять. Разбор знаков, табличек, штрафов.',
+                inside: [
+                    'Чёткие определения остановки и стоянки',
+                    'Полный список мест, где остановка запрещена',
+                    'Разбор всех знаков и табличек парковки',
+                    'Таблица штрафов и условий эвакуации',
+                    'Памятка для выбора места',
+                    'Ссылки на полезные видео'
+                ]
+            }
+        };
+        
+        // Получаем ID курса из localStorage
+        const courseId = localStorage.getItem('last_paid_course') || 'obgon';
+        
+        // Проверяем, что курс существует
+        if (!courseDetails[courseId]) {
+            courseId = 'obgon';
+        }
+        
+        const course = courseDetails[courseId];
+        
+        // Отображаем информацию о курсе
+        const courseInfo = document.getElementById('courseInfo');
+        courseInfo.innerHTML = `
+            <h3>${course.name}</h3>
+            <p><i class="fas fa-check-circle"></i> PDF-файл с полным разбором</p>
+            <p><i class="fas fa-video"></i> Ссылки на видео внутри файла</p>
+            <p><i class="fas fa-table"></i> Таблицы и алгоритмы</p>
+        `;
+        
+        // Отображаем "Что внутри"
+        const whatsInside = document.getElementById('whatsInside');
+        let insideList = '';
+        course.inside.forEach(item => {
+            insideList += `<li><i class="fas fa-check"></i> ${item}</li>`;
+        });
+        whatsInside.innerHTML = `
+            <h4>Что внутри курса</h4>
+            <ul>${insideList}</ul>
+        `;
+        
+        // Отображаем ссылку на скачивание
+        const downloadSection = document.getElementById('downloadSection');
+        if (courseFiles[courseId]) {
+            downloadSection.innerHTML = `
+                <a href="${courseFiles[courseId]}" target="_blank" class="btn-download">
+                    <i class="fas fa-download me-2"></i>Скачать курс
+                </a>
+            `;
+        } else {
+            downloadSection.innerHTML = `
+                <p class="text-danger">Ошибка: файл не найден. Напишите нам на почту.</p>
+            `;
+        }
+        
+        // Очищаем localStorage
+        localStorage.removeItem('last_paid_course');
+        
+        // Сохраняем информацию о продаже для партнерской статистики
+        (function() {
+            function getPartnerFromCookies() {
+                const cookies = document.cookie.split('; ');
+                for (let cookie of cookies) {
+                    if (cookie.startsWith('partner=')) {
+                        try {
+                            return JSON.parse(decodeURIComponent(cookie.substring(8)));
+                        } catch(e) {
+                            return null;
+                        }
+                    }
+                }
+                return null;
+            }
+            
+            const partner = getPartnerFromCookies();
+            
+            const saleData = {
+                product_id: courseId,
+                product_name: course.name,
+                price: 299,
+                partner: partner ? partner.ref : 'direct',
+                date: new Date().toISOString()
+            };
+            
+            const sales = JSON.parse(localStorage.getItem('partnerSales') || '[]');
+            sales.push(saleData);
+            localStorage.setItem('partnerSales', JSON.stringify(sales));
+            
+            console.log('✅ Продажа курса зафиксирована:', saleData);
+        })();
+    </script>
+</body>
+</html>
