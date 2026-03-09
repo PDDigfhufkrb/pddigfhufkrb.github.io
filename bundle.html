@@ -524,7 +524,7 @@
                 <span class="old">1 089 ₽</span>
                 <span class="new">549 ₽</span>
             </div>
-            <a href="#price" class="btn-hero">Купить комплект →</a>
+            <a href="bundle-payment.html" class="btn-hero">Получить комплект →</a>
         </div>
     </section>
 
@@ -740,8 +740,8 @@
         </div>
     </section>
 
-    <!-- Секция с ценой и оплатой -->
-    <section class="price-section" id="price">
+    <!-- Секция с ценой и кнопкой -->
+    <section class="price-section">
         <div class="container">
             <div class="price-card">
                 <h3>Все 11 шпаргалок</h3>
@@ -751,35 +751,8 @@
                 </div>
                 <p class="price-note">PDF-файлы + ссылки на видео</p>
                 
-                <!-- Форма оплаты -->
-                <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
-                <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
-                    
-                    <div class="ym-customer-info">
-                        <div class="ym-block-title">Email для получения материалов</div>
-                        <input name="cps_email" class="ym-input" placeholder="Ваш email" type="text" value="" required>
-                    </div>
-
-                    <div class="ym-hidden-inputs">
-                        <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/bundle-success.html">
-                    </div>
-
-                    <input name="customerNumber" type="hidden" id="customerNumber" value="bundle_549">
-                    
-                    <div class="ym-payment-btn-block">
-                        <div class="ym-input-icon-rub ym-display-none">
-                            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="549" id="paymentSum">
-                        </div>
-                        <button data-text="Купить комплект" class="ym-btn-pay">
-                            <span class="ym-text-crop">Купить комплект</span> 
-                            <span class="ym-price-output">549,00&nbsp;₽</span>
-                        </button>
-                        <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
-                    </div>
-                    
-                    <input name="shopId" type="hidden" value="1256818">
-                </form>
-                <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
+                <!-- Кнопка на отдельную страницу оплаты -->
+                <a href="bundle-payment.html" class="btn-price">Получить комплект →</a>
                 
                 <div class="guarantee">
                     <i class="fas fa-shield-alt"></i>
@@ -810,7 +783,7 @@
     </footer>
 
     <script>
-        // Получаем информацию о партнере из cookies
+        // Получаем информацию о партнере из cookies и сохраняем для страницы оплаты
         function getPartnerFromCookies() {
             const cookies = document.cookie.split('; ');
             for (let cookie of cookies) {
@@ -825,16 +798,12 @@
             return null;
         }
         
-        // Сохраняем ID товара
-        localStorage.setItem('last_paid_product', 'bundle');
-        
-        // Добавляем информацию о партнере в customerNumber
+        // Сохраняем информацию о партнере в sessionStorage, чтобы она не потерялась при переходе на страницу оплаты
         const partner = getPartnerFromCookies();
-        let customerNumber = 'bundle_549';
         if (partner) {
-            customerNumber += `_ref_${partner.ref}`;
+            sessionStorage.setItem('bundle_partner', JSON.stringify(partner));
+            console.log('✅ Партнер сохранен для комплекта:', partner);
         }
-        document.getElementById('customerNumber').value = customerNumber;
     </script>
 </body>
 </html>
