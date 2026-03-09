@@ -52,7 +52,6 @@
             flex-direction: column;
         }
 
-        /* Навигация */
         .navbar {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
@@ -94,7 +93,6 @@
             color: var(--accent);
         }
 
-        /* Основной контейнер */
         .payment-container {
             flex: 1;
             display: flex;
@@ -246,7 +244,7 @@
         }
 
         .secure-badge i {
-            color: var(--success);
+            color: #10b981;
             margin-right: 0.3rem;
         }
 
@@ -260,11 +258,15 @@
                 text-align: center;
                 gap: 0.5rem;
             }
+            
+            .secure-badge {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Навигация -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">
@@ -277,7 +279,6 @@
         </div>
     </nav>
 
-    <!-- Контент оплаты -->
     <div class="payment-container">
         <div class="payment-card">
             <div class="payment-header">
@@ -286,7 +287,6 @@
             </div>
             
             <div class="payment-body">
-                <!-- Информация о товаре -->
                 <div class="product-info">
                     <span class="product-name">Комплект из 11 шпаргалок</span>
                     <span class="product-price">
@@ -294,7 +294,6 @@
                     </span>
                 </div>
                 
-                <!-- Форма оплаты ЮKassa -->
                 <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
                     
                     <div class="ym-customer-info">
@@ -306,7 +305,6 @@
                         <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/bundle-success.html">
                     </div>
 
-                    <!-- customerNumber будет заполнен скриптом -->
                     <input name="customerNumber" type="hidden" id="customerNumber" value="">
                     
                     <div class="ym-payment-btn-block">
@@ -336,11 +334,9 @@
         </div>
     </div>
 
-    <!-- Подключение скрипта ЮKassa -->
     <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
     
     <script>
-        // Функция получения партнера из cookies
         function getPartnerFromCookies() {
             const cookies = document.cookie.split('; ');
             for (let cookie of cookies) {
@@ -358,15 +354,31 @@
         // Сохраняем ID товара для страницы успеха
         localStorage.setItem('last_paid_product', 'bundle');
         
-        // Формируем customerNumber с учетом партнера
-        const partner = getPartnerFromCookies();
+        // Пробуем получить партнера сначала из cookies, потом из sessionStorage (на случай если перешли с bundle.html)
+        let partner = getPartnerFromCookies();
+        
+        if (!partner) {
+            // Если в cookies нет, пробуем достать из sessionStorage (сохранили на предыдущей странице)
+            const savedPartner = sessionStorage.getItem('bundle_partner');
+            if (savedPartner) {
+                try {
+                    partner = JSON.parse(savedPartner);
+                    // Восстанавливаем в cookies
+                    if (partner) {
+                        const cookieValue = encodeURIComponent(JSON.stringify(partner));
+                        document.cookie = `partner=${cookieValue}; path=/; max-age=2592000; samesite=lax`;
+                    }
+                } catch(e) {}
+            }
+        }
+        
         let customerNumber = 'bundle_549';
         if (partner) {
             customerNumber += `_ref_${partner.ref}`;
         }
         document.getElementById('customerNumber').value = customerNumber;
         
-        console.log('✅ Страница оплаты комплекта готова. Customer:', customerNumber);
+        console.log('✅ Страница оплаты комплекта. Партнер:', partner ? partner.ref : 'нет');
     </script>
 </body>
 </html>
