@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата комплекта шпаргалок — ПДД Шпаргалки</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-8YE40R58GL');
+    </script>
+
+    <!-- CSS и стили -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://yookassa.ru/integration/simplepay/css/yookassa_construct_form.css?v=1.33.0">
+    
+    <style>
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1a3b5c;
+            --accent: #ff6b4a;
+            --accent-light: #ff8a6f;
+            --text-primary: #1a2b3c;
+            --text-secondary: #4a5a6a;
+            --bg-light: #f5f7fa;
+            --bg-white: #ffffff;
+            --shadow-sm: 0 4px 20px rgba(10, 37, 64, 0.05);
+            --shadow-md: 0 10px 40px rgba(10, 37, 64, 0.08);
+            --shadow-lg: 0 20px 60px rgba(10, 37, 64, 0.12);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecf2 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Навигация */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(10, 37, 64, 0.05);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .navbar-brand i {
+            color: var(--accent);
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Основной контейнер */
+        .payment-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .payment-card {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .payment-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .payment-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .payment-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+        }
+
+        .payment-body {
+            padding: 2.5rem;
+        }
+
+        .product-info {
+            background: var(--bg-light);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .product-price small {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            text-decoration: line-through;
+            margin-right: 0.5rem;
+        }
+
+        .ym-customer-info {
+            margin-bottom: 1.5rem;
+        }
+
+        .ym-block-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .ym-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .ym-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .ym-payment-btn-block {
+            text-align: center;
+        }
+
+        .ym-btn-pay {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(255, 107, 74, 0.3);
+        }
+
+        .ym-btn-pay:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 74, 0.4);
+        }
+
+        .ym-price-output {
+            margin-left: 0.5rem;
+        }
+
+        .ym-logo {
+            margin-top: 1rem;
+            height: 27px;
+        }
+
+        .payment-footer {
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .payment-footer i {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(10, 37, 64, 0.05);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .secure-badge i {
+            color: var(--success);
+            margin-right: 0.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .payment-body {
+                padding: 1.5rem;
+            }
+            
+            .product-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <i class="fas fa-graduation-cap"></i>
+                ПДД Шпаргалки
+            </a>
+            <a href="bundle.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Вернуться
+            </a>
+        </div>
+    </nav>
+
+    <!-- Контент оплаты -->
+    <div class="payment-container">
+        <div class="payment-card">
+            <div class="payment-header">
+                <h1>Оформление заказа</h1>
+                <p>Все 11 шпаргалок по ПДД</p>
+            </div>
+            
+            <div class="payment-body">
+                <!-- Информация о товаре -->
+                <div class="product-info">
+                    <span class="product-name">Комплект из 11 шпаргалок</span>
+                    <span class="product-price">
+                        <small>1 089 ₽</small> 549 ₽
+                    </span>
+                </div>
+                
+                <!-- Форма оплаты ЮKassa -->
+                <form target="_blank" class="yoomoney-payment-form" action="https://yookassa.ru/integration/simplepay/payment" method="post" accept-charset="utf-8">
+                    
+                    <div class="ym-customer-info">
+                        <div class="ym-block-title">Email для получения материалов</div>
+                        <input name="cps_email" class="ym-input" placeholder="Ваш email" type="text" value="" required>
+                    </div>
+
+                    <div class="ym-hidden-inputs">
+                        <input name="shopSuccessURL" type="hidden" value="https://pdd-shpargalka.ru/bundle-success.html">
+                    </div>
+
+                    <!-- customerNumber будет заполнен скриптом -->
+                    <input name="customerNumber" type="hidden" id="customerNumber" value="">
+                    
+                    <div class="ym-payment-btn-block">
+                        <div class="ym-input-icon-rub ym-display-none">
+                            <input name="sum" placeholder="0.00" class="ym-input ym-sum-input ym-required-input" type="number" step="any" value="549" id="paymentSum">
+                        </div>
+                        <button data-text="Купить комплект" class="ym-btn-pay">
+                            <span class="ym-text-crop">Купить комплект</span> 
+                            <span class="ym-price-output">549,00&nbsp;₽</span>
+                        </button>
+                        <img src="https://yookassa.ru/integration/simplepay/img/iokassa-gray.svg?v=1.33.0" class="ym-logo" width="114" height="27" alt="ЮKassa">
+                    </div>
+                    
+                    <input name="shopId" type="hidden" value="1256818">
+                </form>
+                
+                <div class="payment-footer">
+                    <i class="fas fa-lock"></i> Платёж защищён ЮKassa
+                </div>
+                
+                <div class="secure-badge">
+                    <span><i class="fas fa-shield-alt"></i> Безопасная оплата</span>
+                    <span><i class="fas fa-clock"></i> Мгновенное получение</span>
+                    <span><i class="fas fa-file-pdf"></i> PDF-формат</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение скрипта ЮKassa -->
+    <script src="https://yookassa.ru/integration/simplepay/js/yookassa_construct_form.js?v=1.33.0"></script>
+    
+    <script>
+        // Функция получения партнера из cookies
+        function getPartnerFromCookies() {
+            const cookies = document.cookie.split('; ');
+            for (let cookie of cookies) {
+                if (cookie.startsWith('partner=')) {
+                    try {
+                        return JSON.parse(decodeURIComponent(cookie.substring(8)));
+                    } catch(e) {
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+        
+        // Сохраняем ID товара для страницы успеха
+        localStorage.setItem('last_paid_product', 'bundle');
+        
+        // Формируем customerNumber с учетом партнера
+        const partner = getPartnerFromCookies();
+        let customerNumber = 'bundle_549';
+        if (partner) {
+            customerNumber += `_ref_${partner.ref}`;
+        }
+        document.getElementById('customerNumber').value = customerNumber;
+        
+        console.log('✅ Страница оплаты комплекта готова. Customer:', customerNumber);
+    </script>
+</body>
+</html>
