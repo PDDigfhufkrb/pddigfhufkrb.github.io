@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ПДД Академия — правила дорожного движения просто и понятно</title>
+    <meta name="description" content="Вся теория ПДД простыми словами. Бесплатные материалы, тесты для самопроверки. Сдайте экзамен с первого раза!">
+    <meta name="keywords" content="пдд, правила дорожного движения, теория пдд, билеты пдд, экзамен пдд, гибдд, обучение вождению">
+    <meta name="verify-admitad" content="ab621e135c">
+    
+    <!-- Google tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8YE40R58GL"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-8YE40R58GL');</script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2540;
+            --primary-light: #1a3b5c;
+            --accent: #ff6b4a;
+            --accent-light: #ff8a6f;
+            --success: #10b981;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.025);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02);
+            --radius-lg: 24px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-white); color: var(--text-primary); line-height: 1.5; overflow-x: hidden; }
+        
+        /* Анимации */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease forwards; }
+        .float { animation: float 4s ease-in-out infinite; }
+        
+        /* Навигация */
+        .navbar { background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(10,37,64,0.06); padding: 0.9rem 0; position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .navbar .container { display: flex; justify-content: space-between; align-items: center; }
+        .navbar-brand { font-weight: 800; font-size: 1.6rem; display: flex; align-items: center; gap: 0.6rem; text-decoration: none; background: linear-gradient(135deg, var(--primary), var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .navbar-brand i { font-size: 1.5rem; color: var(--accent); -webkit-text-fill-color: var(--accent); }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--accent); }
+        .btn-nav { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 0.6rem 1.4rem; border-radius: 40px; font-weight: 600; }
+        .btn-nav:hover { color: white; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,107,74,0.25); }
+        @media (max-width: 768px) { .nav-links { display: none; } }
+        
+        /* Герой */
+        .hero { min-height: 90vh; background: linear-gradient(135deg, #0a2540 0%, #1e3a5f 100%); position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 70px; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.2; z-index: 0; }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 30% 50%, rgba(10,37,64,0.4) 0%, rgba(10,37,64,0.8) 100%); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; padding: 3rem 1.5rem; }
+        .hero h1 { font-size: 4rem; font-weight: 800; margin-bottom: 1.5rem; line-height: 1.2; }
+        .hero h1 span { color: var(--accent); }
+        .hero .lead { font-size: 1.3rem; opacity: 0.9; margin-bottom: 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 10px 25px -5px rgba(255,107,74,0.4); transition: all 0.3s; }
+        .btn-primary:hover { transform: translateY(-3px); color: white; }
+        .btn-secondary { background: rgba(255,255,255,0.12); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); color: white; }
+        .hero-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; }
+        .stat-number { font-size: 2.2rem; font-weight: 800; color: var(--accent); }
+        
+        /* Секции */
+        .section-title { font-size: 2.5rem; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        /* Курсы (крупно) */
+        .courses-section { padding: 6rem 0; background: var(--bg-white); }
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2.5rem; }
+        .course-card { background: white; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md); transition: all 0.3s; border: 1px solid rgba(10,37,64,0.05); }
+        .course-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); }
+        .course-image { height: 220px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); position: relative; overflow: hidden; }
+        .course-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .course-card:hover .course-image img { transform: scale(1.05); }
+        .course-badge { position: absolute; top: 1rem; right: 1rem; background: var(--accent); color: white; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
+        .course-content { padding: 2rem; }
+        .course-content h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary); }
+        .course-content p { color: var(--text-secondary); margin-bottom: 1.2rem; font-size: 1rem; }
+        .course-meta { display: flex; gap: 1rem; margin-bottom: 1.2rem; color: var(--text-muted); font-size: 0.85rem; }
+        .course-meta i { color: var(--accent); margin-right: 0.3rem; }
+        .course-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid rgba(10,37,64,0.05); }
+        .course-price { font-size: 2rem; font-weight: 800; color: var(--accent); }
+        .btn-course { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-course:hover { transform: translateX(3px); color: white; }
+        
+        /* Блок кофе (аналогия) */
+        .coffee-analogy { background: linear-gradient(135deg, #fef9f0 0%, #fff5e8 100%); padding: 3rem 2rem; border-radius: 32px; margin: 2rem 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; position: relative; }
+        .coffee-image { flex: 1; min-width: 200px; text-align: center; pointer-events: none; user-select: none; }
+        .coffee-image img { max-width: 200px; border-radius: 20px; opacity: 0.9; pointer-events: none; }
+        .coffee-text { flex: 2; text-align: center; }
+        .coffee-text p { font-size: 1.3rem; font-weight: 600; color: var(--primary); margin-bottom: 0; }
+        .arrow-icon { font-size: 2.5rem; color: var(--accent); animation: float 2s ease-in-out infinite; }
+        
+        /* VK плашка */
+        .vk-block { background: linear-gradient(135deg, #0077ff, #0055aa); padding: 2rem; border-radius: 32px; text-align: center; margin: 3rem 0; color: white; }
+        .vk-block h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .vk-block a { background: white; color: #0077ff; padding: 0.8rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.8rem; margin-top: 1rem; transition: all 0.3s; }
+        .vk-block a:hover { transform: scale(1.05); }
+        
+        /* Тест-попап */
+        .test-popup { position: fixed; bottom: 20px; right: 20px; max-width: 380px; background: white; border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); z-index: 1000; padding: 1.5rem; display: none; flex-direction: column; gap: 1rem; border: 1px solid rgba(0,0,0,0.05); }
+        .test-popup-header { display: flex; justify-content: space-between; align-items: center; }
+        .test-popup-header h4 { font-weight: 700; color: var(--primary); margin: 0; }
+        .close-test { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-secondary); }
+        .test-question { font-weight: 600; margin-bottom: 0.5rem; }
+        .test-options { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
+        .test-option { display: flex; align-items: center; gap: 0.5rem; }
+        .test-option input { width: 18px; height: 18px; }
+        .test-btn { background: var(--accent); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 40px; font-weight: 600; cursor: pointer; width: 100%; }
+        .test-result { font-size: 0.9rem; color: var(--success); font-weight: 600; }
+        
+        /* Футер */
+        .footer { background: var(--primary); color: white; padding: 4rem 0 2rem; margin-top: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; }
+        .footer-links a:hover { color: white; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .courses-grid { grid-template-columns: 1fr; }
+            .coffee-analogy { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="navbar-brand"><i class="fas fa-graduation-cap"></i>ПДД Академия</a>
+        <div class="nav-links">
+            <a href="theory.html">Теория ПДД</a>
+            <a href="#courses">Курсы</a>
+            <a href="#test">Тест</a>
+            <a href="theory.html" class="btn-nav">Бесплатная теория →</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <img src="https://s10.iimage.su/s/30/gnJBF1ixHyYwiGimcCUEoGzUuCUsZ0e7fYNySq3Hw.jpg" class="hero-bg" alt="фон">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Правила дорожного движения — <span>просто и понятно</span></h1>
+        <p class="lead">Вся теория ПДД простыми словами. Бесплатно. Без воды. Только то, что действительно нужно.</p>
+        <div class="hero-buttons">
+            <a href="theory.html" class="btn-primary">Изучить теорию →</a>
+            <a href="#courses" class="btn-secondary">Курсы</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item"><div class="stat-number">11</div><div>тем ПДД</div></div>
+            <div class="stat-item"><div class="stat-number">100%</div><div>бесплатно</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- Курсы (крупно) -->
+<section class="courses-section" id="courses">
+    <div class="container">
+        <h2 class="section-title">Углублённые курсы по ПДД</h2>
+        <p class="section-subtitle">Разберитесь в каждой теме до мельчайших деталей — как чашка кофе, только полезнее</p>
+        
+        <div class="coffee-analogy">
+            <div class="coffee-image"><img src="https://s10.iimage.su/s/30/gnJBF1ixHyYwiGimcCUEoGzUuCUsZ0e7fYNySq3Hw.jpg" alt="две чашки кофе"></div>
+            <div class="coffee-text">
+                <p><i class="fas fa-arrow-left arrow-icon"></i> Полные курсы по этим темам <br> обойдутся вам как две чашки кофе <i class="fas fa-arrow-right arrow-icon"></i></p>
+            </div>
+            <div class="coffee-image"><img src="https://s10.iimage.su/s/30/gnJBF1ixHyYwiGimcCUEoGzUuCUsZ0e7fYNySq3Hw.jpg" alt="две чашки кофе"></div>
+        </div>
+        
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-image"><img src="https://s10.iimage.su/s/03/gPyZ2vRx3m3rL4B06akPfd3NRPop9PbljApbnAN8t.jpg" alt="Обгон"><span class="course-badge">Популярный</span></div>
+                <div class="course-content">
+                    <h3>Обгон и опережение</h3>
+                    <p>Полный разбор: определения, запрещённые места, ошибки, штрафы, алгоритм безопасного обгона.</p>
+                    <div class="course-meta"><span><i class="fas fa-file-pdf"></i> 6 страниц</span><span><i class="fas fa-video"></i> 2 видео</span></div>
+                    <div class="course-footer"><span class="course-price">299 ₽</span><a href="courses/obgon.html" class="btn-course">Подробнее →</a></div>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image"><img src="https://s10.iimage.su/s/03/gXWbGocxkFcmGGC5ffHinSTRIPHwNrOtwi97t6A5k.jpg" alt="Остановка"><span class="course-badge">Новинка</span></div>
+                <div class="course-content">
+                    <h3>Остановка и стоянка</h3>
+                    <p>Всё о знаках, табличках, штрафах и эвакуации. Чтобы никогда не забирать машину со штрафстоянки.</p>
+                    <div class="course-meta"><span><i class="fas fa-file-pdf"></i> 7 страниц</span><span><i class="fas fa-video"></i> 2 видео</span></div>
+                    <div class="course-footer"><span class="course-price">299 ₽</span><a href="courses/ostanka.html" class="btn-course">Подробнее →</a></div>
+                </div>
+            </div>
+            <div class="course-card">
+                <div class="course-image" style="background: linear-gradient(135deg, #e0e0e0, #b0b0b0);"><span class="course-badge">Скоро</span></div>
+                <div class="course-content">
+                    <h3>Проезд перекрёстков</h3>
+                    <p>Все типы перекрёстков, приоритеты, сложные ситуации. Готовится к выпуску.</p>
+                    <div class="course-meta"><span><i class="fas fa-file-pdf"></i> в разработке</span></div>
+                    <div class="course-footer"><span class="course-price">скоро</span><span class="btn-course" style="opacity:0.5; cursor:not-allowed;">Скоро →</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VK плашка -->
+<section class="container">
+    <div class="vk-block">
+        <h3>Присоединяйтесь к нам ВКонтакте</h3>
+        <p>Разборы задач, новости ПДД, полезные материалы и живое общение</p>
+        <a href="https://vk.com/pdd_shpargalki" target="_blank"><i class="fab fa-vk"></i> Вступить в сообщество</a>
+    </div>
+</section>
+
+<!-- Тест-попап -->
+<div id="testPopup" class="test-popup">
+    <div class="test-popup-header"><h4>⚡ Проверьте себя</h4><button class="close-test" onclick="closeTestPopup()">&times;</button></div>
+    <div id="testContent"></div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div><h4>ПДД Академия</h4><p>Вся теория ПДД простыми словами. Бесплатно.</p></div>
+            <div><h4>Обучение</h4><ul class="footer-links"><li><a href="theory.html">Теория ПДД</a></li><li><a href="#courses">Курсы</a></li></ul></div>
+            <div><h4>О проекте</h4><ul class="footer-links"><li><a href="policy.html">Политика конфиденциальности</a></li><li><a href="terms.html">Пользовательское соглашение</a></li></ul></div>
+            <div><h4>Контакты</h4><ul class="footer-links"><li><i class="fas fa-envelope"></i> neurosprint.team@gmail.com</li><li><i class="fab fa-vk"></i> <a href="https://vk.com/pdd_shpargalki" target="_blank">ВКонтакте</a></li></ul></div>
+        </div>
+        <div class="footer-bottom">© 2026 ПДД Академия. Не является официальным источником ПДД.</div>
+    </div>
+</footer>
+
+<script>
+    // Тест (3 блока по 5 вопросов, случайный)
+    const questionSets = [
+        [ { text: "Что такое обгон?", options: ["Опережение без выезда на встречку", "Выезд на встречную полосу с возвращением", "Движение по обочине"], correct: 1 },
+          { text: "Где обгон запрещён всегда?", options: ["На пешеходном переходе", "На двухполосной дороге", "На подъёме"], correct: 0 },
+          { text: "Что означает знак 3.27?", options: ["Стоянка запрещена", "Остановка запрещена", "Парковка разрешена"], correct: 1 },
+          { text: "Какое расстояние до сплошной линии делает остановку запрещённой?", options: ["Менее 5 м", "Менеше 3 м", "Менее 10 м"], correct: 1 },
+          { text: "Сколько минут разрешена остановка по определению?", options: ["До 5 минут", "До 10 минут", "До 3 минут"], correct: 0 } ],
+        [ { text: "Что означает жёлтый сигнал светофора?", options: ["Разрешает движение", "Запрещает движение, если можно остановиться без экстренного торможения", "Разрешает с осторожностью"], correct: 1 },
+          { text: "Что такое опережение?", options: ["Выезд на встречку", "Движение быстрее попутного ТС без выезда на встречку", "Обгон справа"], correct: 1 },
+          { text: "Где разрешена стоянка на левой стороне?", options: ["В населённом пункте на дороге с одной полосой", "На автомагистрали", "Вне населённого пункта"], correct: 0 },
+          { text: "Что запрещено при буксировке на гибкой сцепке?", options: ["Перевозка людей в буксируемом авто", "Скорость более 30 км/ч", "Длина сцепки более 10 м"], correct: 0 },
+          { text: "Что означает зелёный мигающий сигнал?", options: ["Запрещает движение", "Разрешает, но скоро будет запрещающий", "Требует остановки"], correct: 1 } ],
+        [ { text: "Что означает знак 3.20?", options: ["Обгон запрещён", "Стоянка запрещена", "Конец зоны обгона"], correct: 0 },
+          { text: "Кто имеет преимущество на равнозначном перекрёстке?", options: ["Тот, кто справа", "Тот, кто едет прямо", "Тот, кто поворачивает налево"], correct: 0 },
+          { text: "Какое наказание за обгон в запрещённом месте?", options: ["5000₽ или лишение прав", "1500₽", "Предупреждение"], correct: 0 },
+          { text: "Что такое вынужденная остановка?", options: ["Остановка по желанию", "Остановка из-за неисправности или опасности", "Остановка для отдыха"], correct: 1 },
+          { text: "Что означает разметка 1.1?", options: ["Сплошная линия, пересекать запрещено", "Прерывистая линия", "Разделение потоков"], correct: 0 } ]
+    ];
+    let currentSet = [...questionSets[Math.floor(Math.random() * questionSets.length)]];
+    let currentIndex = 0, score = 0;
+    function renderQuestion() {
+        const q = currentSet[currentIndex];
+        let html = `<div class="test-question">${currentIndex+1}. ${q.text}</div><div class="test-options">`;
+        q.options.forEach((opt, i) => { html += `<label class="test-option"><input type="radio" name="q" value="${i}"> ${opt}</label>`; });
+        html += `</div><button class="test-btn" onclick="answerQuestion()">Ответить</button>`;
+        document.getElementById('testContent').innerHTML = html;
+    }
+    function answerQuestion() {
+        const selected = document.querySelector('input[name="q"]:checked');
+        if (!selected) return;
+        if (parseInt(selected.value) === currentSet[currentIndex].correct) score++;
+        currentIndex++;
+        if (currentIndex < currentSet.length) renderQuestion();
+        else finishTest();
+    }
+    function finishTest() {
+        let recommendation = "";
+        if (score < 3) recommendation = "рекомендуем изучить тему «Обгон и опережение» и «Остановка и стоянка»";
+        else if (score < 4) recommendation = "рекомендуем повторить тему «Проезд перекрёстков»";
+        else recommendation = "вы отлично знаете основы! Можете углубиться в наши курсы";
+        document.getElementById('testContent').innerHTML = `<div class="test-result">✅ Вы ответили правильно на ${score} из 5.<br>📘 ${recommendation}<br><br><a href="theory.html" style="display:inline-block; margin-top:10px;">Перейти к теории</a></div>`;
+    }
+    function showTestPopup() { 
+        const popup = document.getElementById('testPopup');
+        if (popup) { 
+            popup.style.display = 'flex';
+            currentIndex = 0; score = 0;
+            currentSet = [...questionSets[Math.floor(Math.random() * questionSets.length)]];
+            renderQuestion();
+        }
+    }
+    function closeTestPopup() { document.getElementById('testPopup').style.display = 'none'; }
+    setTimeout(() => { if(localStorage.getItem('testClosed') !== 'true') showTestPopup(); }, 15000);
+    document.querySelectorAll('.test-option input, .test-btn').forEach(el => { if(el) el.onclick = (e) => e.stopPropagation(); });
+</script>
+<!-- Яндекс.Метрика -->
+<script type="text/javascript">(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js','ym');ym(106112525,'init',{clickmap:true,trackLinks:true});</script>
+</body>
+</html>
