@@ -1,0 +1,295 @@
+<!-- МОДАЛЬНОЕ ОКНО С ТЕСТОМ (добавить перед закрывающим </body>) -->
+<div class="quiz-modal" id="quizModal">
+    <div class="quiz-modal-content">
+        <div class="quiz-modal-header">
+            <h3>🧠 Проверьте свои знания ПДД</h3>
+            <button class="quiz-close" id="closeQuiz">&times;</button>
+        </div>
+        <div id="quiz-container">
+            <!-- вопросы будут подгружаться через JS -->
+        </div>
+    </div>
+</div>
+
+<style>
+.quiz-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+.quiz-modal.show {
+    display: flex;
+}
+.quiz-modal-content {
+    background: white;
+    max-width: 600px;
+    width: 90%;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    position: relative;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.quiz-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(10,37,64,0.1);
+}
+.quiz-modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 0;
+}
+.quiz-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.3s;
+}
+.quiz-close:hover {
+    color: var(--accent);
+}
+.quiz-question {
+    margin-bottom: 2rem;
+}
+.quiz-question-text {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+.quiz-option {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    background: var(--bg-soft);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.quiz-option:hover {
+    background: rgba(255,107,74,0.1);
+}
+.quiz-option input {
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+.quiz-option label {
+    flex: 1;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+.quiz-submit {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+.quiz-submit:hover {
+    background: var(--accent-light);
+}
+.quiz-result {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: var(--bg-soft);
+    border-radius: var(--radius-md);
+}
+.quiz-result h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+.quiz-result p {
+    color: var(--text-secondary);
+}
+.quiz-result a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+</style>
+
+<script>
+// КАВЕРЗНЫЙ ТЕСТ (3 блока по 5 вопросов — всего 15)
+const quizSets = [
+    [
+        {
+            text: "Вы приближаетесь к нерегулируемому перекрёстку равнозначных дорог. Кто имеет преимущество?",
+            options: ["Тот, кто едет прямо", "Тот, кто поворачивает налево", "Тот, у кого нет помехи справа", "Тот, кто первый подъехал"],
+            correct: 2
+        },
+        {
+            text: "На каком расстоянии от железнодорожного переезда запрещена остановка?",
+            options: ["10 м", "30 м", "50 м", "100 м"],
+            correct: 2
+        },
+        {
+            text: "Что из перечисленного является обгоном?",
+            options: ["Движение быстрее попутного автомобиля", "Выезд на встречную полосу с возвращением", "Перестроение на соседнюю полосу", "Объезд препятствия"],
+            correct: 1
+        },
+        {
+            text: "Можно ли выезжать на трамвайные пути встречного направления?",
+            options: ["Да, если нет трамвая", "Да, при объезде препятствия", "Нет, запрещено всегда", "Можно, если разрешает разметка"],
+            correct: 2
+        },
+        {
+            text: "Что означает мигающий зелёный сигнал светофора?",
+            options: ["Разрешает движение и предупреждает о скором включении жёлтого", "Запрещает движение", "Разрешает движение только пешеходам", "Разрешает движение с осторожностью"],
+            correct: 0
+        }
+    ],
+    [
+        {
+            text: "Можно ли начинать обгон, если впереди идущий автомобиль включил левый поворотник?",
+            options: ["Да, если есть свободная полоса", "Да, если скорость позволяет", "Нет, это запрещено", "Можно, если это не трамвай"],
+            correct: 2
+        },
+        {
+            text: "Что такое 'вынужденная остановка'?",
+            options: ["Остановка по требованию инспектора", "Остановка на 5 минут", "Остановка из-за поломки или опасности", "Остановка для посадки пассажиров"],
+            correct: 2
+        },
+        {
+            text: "Кто имеет преимущество на круговом перекрёстке, если знаки приоритета отсутствуют?",
+            options: ["Въезжающий на круг", "Движущийся по кругу", "Тот, кто первый подъехал", "Тот, кто поворачивает направо"],
+            correct: 1
+        },
+        {
+            text: "С какой максимальной скоростью можно двигаться в жилой зоне?",
+            options: ["20 км/ч", "40 км/ч", "60 км/ч", "80 км/ч"],
+            correct: 0
+        },
+        {
+            text: "Разрешён ли обгон на пешеходном переходе?",
+            options: ["Да, если нет пешеходов", "Да, если переход нерегулируемый", "Нет, запрещён всегда", "Разрешён при наличии разметки"],
+            correct: 2
+        }
+    ],
+    [
+        {
+            text: "Что означает знак 3.20 'Обгон запрещён'?",
+            options: ["Запрещён обгон всех ТС", "Запрещён обгон всех ТС, кроме тихоходных", "Запрещён обгон мотоциклов", "Запрещён обгон грузовиков"],
+            correct: 1
+        },
+        {
+            text: "Должен ли водитель уступить дорогу пешеходу, который только вступил на пешеходный переход?",
+            options: ["Да, всегда", "Нет, только если пешеход уже на середине", "Только если переход регулируемый", "Только если это слепой пешеход"],
+            correct: 0
+        },
+        {
+            text: "При буксировке на гибкой сцепке расстояние между автомобилями должно быть:",
+            options: ["2–4 м", "4–6 м", "6–8 м", "8–10 м"],
+            correct: 1
+        },
+        {
+            text: "Какое наказание предусмотрено за обгон в запрещённом месте?",
+            options: ["5000 ₽ или лишение прав", "1500 ₽", "3000 ₽", "Предупреждение"],
+            correct: 0
+        },
+        {
+            text: "Что означает жёлтый мигающий сигнал светофора?",
+            options: ["Запрещает движение", "Разрешает движение и информирует о нерегулируемом перекрёстке", "Требует остановиться", "Разрешает движение только пешеходам"],
+            correct: 1
+        }
+    ]
+];
+
+let currentQuizSet = 0;
+let answers = [];
+
+function loadQuiz(setIndex) {
+    const questions = quizSets[setIndex];
+    const container = document.getElementById('quiz-container');
+    if (!container) return;
+    
+    let html = '';
+    questions.forEach((q, idx) => {
+        html += `
+            <div class="quiz-question" data-qidx="${idx}">
+                <div class="quiz-question-text">${idx+1}. ${q.text}</div>
+                ${q.options.map((opt, optIdx) => `
+                    <div class="quiz-option" data-opt="${optIdx}">
+                        <input type="radio" name="q${idx}" value="${optIdx}" id="q${idx}_${optIdx}">
+                        <label for="q${idx}_${optIdx}">${opt}</label>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    });
+    html += `<button class="quiz-submit" id="quizSubmit">Ответить →</button>`;
+    container.innerHTML = html;
+    
+    document.getElementById('quizSubmit').addEventListener('click', () => submitQuiz(setIndex));
+}
+
+function submitQuiz(setIndex) {
+    const questions = quizSets[setIndex];
+    let score = 0;
+    let recommendation = '';
+    
+    for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (selected && parseInt(selected.value) === questions[i].correct) {
+            score++;
+        }
+    }
+    
+    if (score <= 2) recommendation = 'Основные понятия';
+    else if (score <= 4) recommendation = 'Обгон и опережение';
+    else recommendation = 'Остановка и стоянка';
+    
+    const container = document.getElementById('quiz-container');
+    container.innerHTML = `
+        <div class="quiz-result">
+            <h4>Ваш результат: ${score} из ${questions.length}</h4>
+            <p>${score <= 2 ? 'Нужно подтянуть базу.' : score <= 4 ? 'Хорошо, но есть пробелы.' : 'Отлично! Вы хорошо знаете ПДД.'}</p>
+            <p>🎯 Рекомендуем изучить тему: <strong>${recommendation}</strong></p>
+            <p><a href="/theory.html#${recommendation.toLowerCase().replace(/ /g, '-')}">Перейти к теории →</a></p>
+        </div>
+    `;
+}
+
+function initQuiz() {
+    loadQuiz(currentQuizSet);
+}
+
+// ПОКАЗ МОДАЛЬНОГО ОКНА ЧЕРЕЗ 15 СЕКУНД
+let quizShown = false;
+setTimeout(() => {
+    if (!quizShown && localStorage.getItem('quizShown') !== 'true') {
+        document.getElementById('quizModal').classList.add('show');
+        quizShown = true;
+        localStorage.setItem('quizShown', 'true');
+        initQuiz();
+    }
+}, 15000);
+
+// ЗАКРЫТИЕ МОДАЛЬНОГО ОКНА
+document.getElementById('closeQuiz').addEventListener('click', () => {
+    document.getElementById('quizModal').classList.remove('show');
+});
+</script>
